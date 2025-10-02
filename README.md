@@ -1,17 +1,18 @@
 # onehand-coding-content
 
-A Add your description here project.
+A project to modularize my python codes content in my FB Page.
 
 ## Installation
 
 ```bash
-pip install -e .
+git clone https://github.com/Onehand-Coding/onehand-coding-content.gt
+uv sync
 ```
 
 ## Usage
 
 ```bash
-onehand-coding-content --help
+uv run run-code transparency_meter.py
 ```
 
 ## Contributing

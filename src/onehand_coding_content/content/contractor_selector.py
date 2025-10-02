@@ -1,5 +1,6 @@
 import time
 import random
+from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 class ContractorSelectionSystem:
     """
@@ -9,11 +10,11 @@ class ContractorSelectionSystem:
 
     def __init__(self):
         self.the_chosen_one = "Kamag-anak Construction Corp."
-        print("🏗️  GOVERNMENT PROJECT BIDDING SYSTEM")
+        typing_with_pauses("🏗️  GOVERNMENT PROJECT BIDDING SYSTEM", delay=0.03)
         print("="*60)
-        print("📜 'Ensuring fair and transparent selection since... today!'")
+        typing_with_pauses("📜 'Ensuring fair and transparent selection since... today!'")
         print("="*60)
-        time.sleep(2)
+        dramatic_pause(2)
 
     def display_bidders(self):
         """Show all participating bidders (for show)"""
@@ -48,23 +49,23 @@ class ContractorSelectionSystem:
             }
         ]
 
-        print("\n📋 REGISTERED BIDDERS:\n")
+        typewriter_effect("\n📋 REGISTERED BIDDERS:\n")
         for i, bidder in enumerate(bidders, 1):
-            print(f"{i}. {bidder['name']}")
-            print(f"   Experience: {bidder['experience']}")
-            print(f"   Bid Amount: {bidder['bid']}")
-            print(f"   Credentials: {bidder['credentials']}")
-            print(f"   Past Projects: {bidder['past_projects']}")
+            typewriter_effect(f"{i}. {bidder['name']}")
+            typewriter_effect(f"   Experience: {bidder['experience']}")
+            typewriter_effect(f"   Bid Amount: {bidder['bid']}")
+            typewriter_effect(f"   Credentials: {bidder['credentials']}")
+            typing_with_pauses(f"   Past Projects: {bidder['past_projects']}")
             print()
-            time.sleep(1.5)
+            time.sleep(0.8)
 
         return bidders
 
     def evaluation_criteria(self):
         """Official evaluation metrics (very scientific)"""
-        print("\n📊 EVALUATION CRITERIA:")
+        typewriter_effect("\n📊 EVALUATION CRITERIA:")
         print("="*60)
-        time.sleep(1)
+        dramatic_pause(1)
 
         criteria = [
             ("Technical Competence", "30%", "Important daw"),
@@ -75,32 +76,32 @@ class ContractorSelectionSystem:
         ]
 
         for criterion, weight, note in criteria:
-            print(f"✓ {criterion}: {weight} - {note}")
-            time.sleep(0.8)
+            typing_with_pauses(f"✓ {criterion}: {weight} - {note}")
+            time.sleep(0.5)
 
     def random_selection_process(self):
         """The most 'random' selection you'll ever see"""
-        print("\n\n🎰 INITIATING RANDOM SELECTION ALGORITHM...")
+        typewriter_effect("\n\n🎰 INITIATING RANDOM SELECTION ALGORITHM...")
         print("="*60)
-        time.sleep(2)
+        dramatic_pause(2)
 
-        print("🔄 Analyzing bids...")
-        time.sleep(2)
+        typewriter_effect("🔄 Analyzing bids...")
+        dramatic_pause(2)
 
-        print("🧮 Computing scores...")
-        time.sleep(2)
+        typewriter_effect("🧮 Computing scores...")
+        dramatic_pause(2)
 
-        print("🎲 Applying randomization matrix...")
-        time.sleep(2)
+        typewriter_effect("🎲 Applying randomization matrix...")
+        dramatic_pause(2)
 
         # Dramatic countdown
-        print("\n⏳ Selecting winner in:")
+        typewriter_effect("\n⏳ Selecting winner in:")
         for i in range(3, 0, -1):
-            print(f"   {i}...")
+            typewriter_effect(f"   {i}...")
             time.sleep(1)
 
         # Fake randomization
-        print("\n🎯 Random selection in progress:")
+        typewriter_effect("\n🎯 Random selection in progress:")
         fake_candidates = [
             "Reliable Contractors Co.",
             "Quality Infrastructure Ltd.",
@@ -108,47 +109,47 @@ class ContractorSelectionSystem:
             "Kamag-anak Construction Corp."
         ]
 
-        time.sleep(1)
+        dramatic_pause(1)
         for candidate in fake_candidates:
-            print(f"   Checking... {candidate}")
+            typewriter_effect(f"   Checking... {candidate}")
             time.sleep(0.5)
             if candidate != self.the_chosen_one:
-                print(f"   ❌ Disqualified (random reasons)")
+                typing_with_pauses(f"   ❌ Disqualified (random reasons)")
             else:
-                print(f"   ✅ *Mysteriously passes all criteria*")
-            time.sleep(1)
+                typing_with_pauses(f"   ✅ *Mysteriously passes all criteria*")
+            time.sleep(0.8)
 
     def announce_winner(self):
         """The grand reveal"""
         print("\n\n" + "="*60)
-        print("🎊 OFFICIAL ANNOUNCEMENT")
+        typing_with_pauses("🎊 OFFICIAL ANNOUNCEMENT", delay=0.03)
         print("="*60)
-        time.sleep(2)
+        dramatic_pause(2)
 
-        print(f"\n🏆 WINNER: {self.the_chosen_one}")
-        time.sleep(1)
+        typing_with_pauses(f"\n🏆 WINNER: {self.the_chosen_one}", delay=0.04)
+        dramatic_pause(1)
 
-        print("\n📢 Justification:")
-        print("   'After careful and RANDOM evaluation...'")
-        time.sleep(1)
-        print("   'The selection process was TRANSPARENT...'")
-        time.sleep(1)
-        print("   'All criteria were FAIRLY assessed...'")
-        time.sleep(1)
-        print("   'This company offered the BEST value...'")
-        time.sleep(2)
+        typewriter_effect("\n📢 Justification:")
+        typing_with_pauses("   'After careful and RANDOM evaluation...'")
+        dramatic_pause(1)
+        typing_with_pauses("   'The selection process was TRANSPARENT...'")
+        dramatic_pause(1)
+        typing_with_pauses("   'All criteria were FAIRLY assessed...'")
+        dramatic_pause(1)
+        typing_with_pauses("   'This company offered the BEST value...'")
+        dramatic_pause(2)
 
-        print("\n💰 Contract Details:")
-        print("   Amount: ₱800M (highest bid)")
-        print("   Timeline: '18 months' (realistically: 5 years)")
-        print("   Quality guarantee: 'Trust me bro'")
-        time.sleep(2)
+        typewriter_effect("\n💰 Contract Details:")
+        typewriter_effect("   Amount: ₱800M (highest bid)")
+        typewriter_effect("   Timeline: '18 months' (realistically: 5 years)")
+        typing_with_pauses("   Quality guarantee: 'Trust me bro'")
+        dramatic_pause(2)
 
     def public_reaction(self):
         """The aftermath"""
-        print("\n\n📱 PUBLIC REACTION:")
+        typewriter_effect("\n\n📱 PUBLIC REACTION:")
         print("="*60)
-        time.sleep(1)
+        dramatic_pause(1)
 
         reactions = [
             "🤨 Netizen1: 'Random nga, randomly chosen before the bidding'",
@@ -159,22 +160,22 @@ class ContractorSelectionSystem:
         ]
 
         for reaction in reactions:
-            print(f"   {reaction}")
-            time.sleep(1.5)
+            typing_with_pauses(f"   {reaction}")
+            time.sleep(1)
 
-        time.sleep(2)
-        print("\n📢 Official Response:")
-        print("   'Any insinuations of irregularity are baseless.'")
-        time.sleep(1)
-        print("   'The process followed all legal procedures.'")
-        time.sleep(1)
-        print("   'May complaint ka? File a case! (Matagal yan, 10 years minimum)'")
+        dramatic_pause(2)
+        typewriter_effect("\n📢 Official Response:")
+        typing_with_pauses("   'Any insinuations of irregularity are baseless.'")
+        dramatic_pause(1)
+        typing_with_pauses("   'The process followed all legal procedures.'")
+        dramatic_pause(1)
+        typing_with_pauses("   'May complaint ka? File a case! (Matagal yan, 10 years minimum)'")
 
 
 # Run the simulation
 if __name__ == "__main__":
     system = ContractorSelectionSystem()
-    time.sleep(1)
+    dramatic_pause(1)
 
     # Show all bidders
     bidders = system.display_bidders()
@@ -192,9 +193,9 @@ if __name__ == "__main__":
     system.public_reaction()
 
     print("\n\n" + "="*60)
-    print("🎭 END OF BIDDING PROCESS")
-    print("💬 'Democracy in action!' - Official Tagline")
-    print("🤦 'Déjà vu in action.' - Citizens")
+    typing_with_pauses("🎭 END OF BIDDING PROCESS", delay=0.03)
+    typing_with_pauses("💬 'Democracy in action!' - Official Tagline")
+    typing_with_pauses("🤦 'Déjà vu in action.' - Citizens")
     print("="*60)
 
-    print("\n\n# Random.seed(ninong_ni_mayor)")
+    typewriter_effect("\n\n# Random.seed(ninong_ni_mayor)")
