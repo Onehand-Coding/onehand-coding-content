@@ -116,12 +116,6 @@ class TransparencyMeter:
             typing_with_pauses(f"📌 Reason: {excuse}")
             time.sleep(1.5)
 
-        print("\n" + "="*60)
-        typing_with_pauses("📉 OVERALL TRANSPARENCY INDEX: 0%", delay=0.04)
-        print("="*60)
-        dramatic_pause(1)
-        typing_with_pauses("\n🏆 Achievement Unlocked: 'Consistent Performance!'")
-
     def attempt_to_fix(self):
         """Try to fix the stuck meter (spoiler: it won't work)"""
         print("\n" + "="*60)
@@ -184,14 +178,36 @@ class TransparencyMeter:
             "Request #301: Real-time updates on the ICI investigation"
         ]
 
+        satirical_responses = [
+            "'After the next 3 elections'",
+            "'Once the documents are declassified in 2099'",
+            "'When pigs fly, or when traffic in EDSA is clear'",
+            "'We have received your request. Please expect a reply within 3-5 business centuries.'",
+            "'Currently under review by the Committee for Making Things Sound Complicated.'",
+            "'Your request is being processed. In the meantime, please enjoy this complimentary picture of a smiling politician.'",
+            "'File not found. Have you tried looking under the rug?'"
+        ]
+
+        satirical_waiting_days = [
+            "999+ days",
+            "Error: Integer overflow",
+            "404 days not found",
+            "Still counting...",
+            "Ask again tomorrow",
+            "Since the dawn of time",
+            "Pending since last administration"
+        ]
+
         for request in requests:
             typewriter_effect(f"\n📥 {request}")
             time.sleep(0.8)
             typewriter_effect("   Status: Pending")
             time.sleep(0.8)
-            typewriter_effect("   Days waiting: 999+ days")
+            days_waiting = random.choice(satirical_waiting_days)
+            typewriter_effect(f"   Days waiting: {days_waiting}")
             time.sleep(0.8)
-            typing_with_pauses("   Expected response: 'After the next 3 elections'")
+            response = random.choice(satirical_responses)
+            typing_with_pauses(f"   Expected response: {response}")
             time.sleep(1.5)
 
         typewriter_effect("\n💬 Auto-reply:")
@@ -217,11 +233,17 @@ if __name__ == "__main__":
     # Test all categories
     meter.test_all_categories()
 
+    # Show citizen requests
+    meter.citizen_requests()
+
     # Try to fix
     meter.attempt_to_fix()
 
-    # Show citizen requests
-    meter.citizen_requests()
+    print("\n" + "="*60)
+    typing_with_pauses("📉 OVERALL TRANSPARENCY INDEX: 0%", delay=0.04)
+    print("="*60)
+    dramatic_pause(1)
+    typing_with_pauses("\n🏆 Achievement Unlocked: 'Consistent Performance!'")
 
     # Final message
     print("\n" + "="*60)
