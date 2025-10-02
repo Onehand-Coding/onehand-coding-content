@@ -12,7 +12,7 @@ uv sync
 ## Usage
 
 ```bash
-uv run run-code transparency_meter.py
+uv run run-code transparency_meter.py # Choose a specific module you want to run from src/onehand_coding_content/content
 ```
 
 ## Contributing
