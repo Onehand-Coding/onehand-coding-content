@@ -26,11 +26,15 @@ def run_script(script_name: str, args: list[str] = []):
     module_name = f"src.onehand_coding_content.content.{script_name[:-3]}"  # Remove .py extension
     module_command = [python_executable, "-m", module_name] + args
 
-    result = subprocess.call(module_command, cwd=PROJECT_ROOT)
-    # If module run fails, try direct execution                                                                                       │
-    if result != 0:
-        command = [python_executable, str(script_path)] + args
-        subprocess.call(command)
+    try:
+        result = subprocess.call(module_command, cwd=PROJECT_ROOT)
+        # If module run fails, try direct execution
+        if result != 0:
+            command = [python_executable, str(script_path)] + args
+            subprocess.call(command)
+    except KeyboardInterrupt:
+        print("\n👋 Program interrupted by user. Bye...")
+        sys.exit(0)
 
 
 def main():

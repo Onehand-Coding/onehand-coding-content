@@ -3,7 +3,7 @@ import random
 
 import pygame
 
-from ..sounds import play_sound, NEVER_BACKDOWN
+from ..sounds import play_sound, NEVER_BACKDOWN, KEYPRESS_SOUND
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 class TransparencyMeter:
@@ -55,17 +55,17 @@ class TransparencyMeter:
 
     def check_transparency(self, category):
         """Check transparency level for different categories"""
-        typewriter_effect(f"\n\n📋 Checking transparency for: {category}")
+        typewriter_effect(f"\n📋 Checking transparency for: {category}")
         print("-"*60)
         dramatic_pause(1)
 
         # Simulate "checking"
         typewriter_effect("🔍 Analyzing data...")
-        dramatic_pause(2)
+        dramatic_pause(1.5)
         typewriter_effect("🧮 Calculating metrics...")
-        dramatic_pause(2)
+        dramatic_pause(1.5)
         typewriter_effect("📊 Generating report...")
-        dramatic_pause(2)
+        dramatic_pause(1.5)
 
         # Result is always the same
         typewriter_effect(f"\n📈 Transparency Level: {self.transparency_level}%")
@@ -76,6 +76,7 @@ class TransparencyMeter:
             print("░", end="", flush=True)
             time.sleep(0.1)
         print("] 0%")
+        play_sound(KEYPRESS_SOUND)
 
         dramatic_pause(1)
         excuse = random.choice(self.excuses_list)
@@ -92,16 +93,17 @@ class TransparencyMeter:
             ("Official Expenses", "SALN? What SALN?"),
             ("Meeting Minutes", "Who decided what?"),
             ("Audit Reports", "COA findings? Never heard of her"),
-            ("Performance Metrics", "How are we actually doing?")
+            ("Performance Metrics", "How are we actually doing?"),
+            ("ICI Investigation Transparency", "ICI Investigation: Public live feed, or another state secret?")
         ]
 
-        print("\n\n" + "="*60)
-        typewriter_effect("\n\n🔍 COMPREHENSIVE TRANSPARENCY AUDIT")
+        print("\n" + "="*60)
+        typewriter_effect("🔍 COMPREHENSIVE TRANSPARENCY AUDIT")
         print("="*60)
         dramatic_pause(2)
 
         for category, question in categories:
-            typewriter_effect(f"\n\n📂 Category: {category}")
+            typewriter_effect(f"\n📂 Category: {category}")
             typing_with_pauses(f"❓ Question: {question}")
             dramatic_pause(1)
 
@@ -114,7 +116,7 @@ class TransparencyMeter:
             typing_with_pauses(f"📌 Reason: {excuse}")
             time.sleep(1.5)
 
-        print("\n\n" + "="*60)
+        print("\n" + "="*60)
         typing_with_pauses("📉 OVERALL TRANSPARENCY INDEX: 0%", delay=0.04)
         print("="*60)
         dramatic_pause(1)
@@ -122,8 +124,8 @@ class TransparencyMeter:
 
     def attempt_to_fix(self):
         """Try to fix the stuck meter (spoiler: it won't work)"""
-        print("\n\n" + "="*60)
-        typewriter_effect("\n\n🔧 ATTEMPTING TO REPAIR TRANSPARENCY METER...")
+        print("\n" + "="*60)
+        typewriter_effect("🔧 ATTEMPTING TO REPAIR TRANSPARENCY METER...")
         print("="*60)
         dramatic_pause(2)
 
@@ -156,7 +158,7 @@ class TransparencyMeter:
 
             time.sleep(0.8)
 
-        typewriter_effect("\n\n🤷 DIAGNOSIS:")
+        typewriter_effect("\n🤷 DIAGNOSIS:")
         dramatic_pause(1)
         typing_with_pauses("   Technical Issue: Meter is not broken.")
         dramatic_pause(1)
@@ -168,8 +170,8 @@ class TransparencyMeter:
 
     def citizen_requests(self):
         """Simulate citizen FOI requests"""
-        print("\n\n" + "="*60)
-        typewriter_effect("\n\n📬 PROCESSING FREEDOM OF INFORMATION REQUESTS")
+        print("\n" + "="*60)
+        typewriter_effect("📬 PROCESSING FREEDOM OF INFORMATION REQUESTS")
         print("="*60)
         dramatic_pause(1)
 
@@ -178,7 +180,8 @@ class TransparencyMeter:
             "Request #0847: Detailed budget breakdown",
             "Request #1293: Travel expenses of officials",
             "Request #1888: Meeting transcripts",
-            "Request #2456: Performance evaluations"
+            "Request #2456: Performance evaluations",
+            "Request #301: Real-time updates on the ICI investigation"
         ]
 
         for request in requests:
@@ -186,12 +189,12 @@ class TransparencyMeter:
             time.sleep(0.8)
             typewriter_effect("   Status: Pending")
             time.sleep(0.8)
-            typewriter_effect("   Days waiting: 547 days")
+            typewriter_effect("   Days waiting: 999+ days")
             time.sleep(0.8)
-            typing_with_pauses("   Expected response: '15-30 working days' (narrator: it's been years)")
+            typing_with_pauses("   Expected response: 'After the next 3 elections'")
             time.sleep(1.5)
 
-        typewriter_effect("\n\n💬 Auto-reply:")
+        typewriter_effect("\n💬 Auto-reply:")
         typing_with_pauses("   'Your request has been received and is being processed.'")
         dramatic_pause(1)
         typing_with_pauses("   'Please expect a response within 15-30 working days.'")
@@ -221,7 +224,7 @@ if __name__ == "__main__":
     meter.citizen_requests()
 
     # Final message
-    print("\n\n" + "="*60)
+    print("\n" + "="*60)
     typing_with_pauses("🎭 SYSTEM SUMMARY", delay=0.03)
     print("="*60)
     typewriter_effect("📊 Transparency Meter: 0% (functioning normally)")
