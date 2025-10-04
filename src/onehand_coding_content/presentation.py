@@ -17,7 +17,7 @@ def typewriter_effect(text, delay=0.05, end_with_newline=True):
         print()
 
 
-def typing_with_pauses(text, delay=0.05, pause_chars=",.?!;:"):
+def typing_with_pauses(text, delay=0.05, pause_chars=",.?!;:'"):
     """Typewriter effect with dramatic pauses on punctuation with sound"""
     for char in text:
         print(char, end="", flush=True)

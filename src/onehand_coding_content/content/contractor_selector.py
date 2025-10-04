@@ -1,5 +1,7 @@
 import time
 import random
+
+from ..sounds import play_with_wait, SABOG_SOUND
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 class ContractorSelectionSystem:
@@ -9,23 +11,24 @@ class ContractorSelectionSystem:
     """
 
     def __init__(self):
-        self.the_chosen_one = "Kamag-anak Construction Corp."
+        print()
+        print("="*60)
         typing_with_pauses("🏗️  GOVERNMENT PROJECT BIDDING SYSTEM", delay=0.03)
         print("="*60)
+        dramatic_pause(1)
         typing_with_pauses("📜 'Ensuring fair and transparent selection since... today!'")
-        print("="*60)
         dramatic_pause(2)
 
-    def display_bidders(self):
-        """Show all participating bidders (for show)"""
-        bidders = [
-            {
-                "name": "Kamag-anak Construction Corp.",
-                "experience": "2 months",
-                "bid": "₱800M",
-                "credentials": "May contact number ng mayor",
-                "past_projects": "Cousin's bahay (ongoing)"
-            },
+        self.the_chosen_one = "Kasabwat Construction Corp."
+        self.disqualification_reasons = [
+            "Not known to project proponents",
+            "Pasaway",
+            "Doesnt want to provide SOP",
+            "Not DPWH Certified, what?",
+            "Not Certified to build Ghost Projects",
+            "Not Certified to build Sub-standard Projects"
+        ]
+        self.bidders = [
             {
                 "name": "Experienced Builders Inc.",
                 "experience": "25 years",
@@ -46,20 +49,29 @@ class ContractorSelectionSystem:
                 "bid": "₱420M",
                 "credentials": "Multiple certifications",
                 "past_projects": "Bridge still standing after 20 years!"
+            },
+            {
+                "name": "Kasabwat Construction Corp.",
+                "experience": "2 months",
+                "bid": "₱800M",
+                "credentials": "May contact number sa DPWH",
+                "past_projects": "Cousin's bahay (ongoing)"
             }
         ]
 
-        typewriter_effect("\n📋 REGISTERED BIDDERS:\n")
-        for i, bidder in enumerate(bidders, 1):
-            typewriter_effect(f"{i}. {bidder['name']}")
-            typewriter_effect(f"   Experience: {bidder['experience']}")
-            typewriter_effect(f"   Bid Amount: {bidder['bid']}")
-            typewriter_effect(f"   Credentials: {bidder['credentials']}")
+    def display_bidders(self):
+        """Show all participating bidders (for show)"""
+        typewriter_effect("📋 REGISTERED BIDDERS:")
+        print("="*60)
+        dramatic_pause(2)
+        for i, bidder in enumerate(self.bidders, 1):
+            typing_with_pauses(f"{i}. {bidder['name']}")
+            typing_with_pauses(f"   Experience: {bidder['experience']}")
+            typing_with_pauses(f"   Bid Amount: {bidder['bid']}")
+            typing_with_pauses(f"   Credentials: {bidder['credentials']}")
             typing_with_pauses(f"   Past Projects: {bidder['past_projects']}")
             print()
             time.sleep(0.8)
-
-        return bidders
 
     def evaluation_criteria(self):
         """Official evaluation metrics (very scientific)"""
@@ -85,13 +97,13 @@ class ContractorSelectionSystem:
         print("="*60)
         dramatic_pause(2)
 
-        typewriter_effect("🔄 Analyzing bids...")
+        typing_with_pauses("🔄 Analyzing bids...")
         dramatic_pause(2)
 
-        typewriter_effect("🧮 Computing scores...")
+        typing_with_pauses("🧮 Computing scores...")
         dramatic_pause(2)
 
-        typewriter_effect("🎲 Applying randomization matrix...")
+        typing_with_pauses("🎲 Applying randomization matrix...")
         dramatic_pause(2)
 
         # Dramatic countdown
@@ -102,19 +114,14 @@ class ContractorSelectionSystem:
 
         # Fake randomization
         typewriter_effect("\n🎯 Random selection in progress:")
-        fake_candidates = [
-            "Reliable Contractors Co.",
-            "Quality Infrastructure Ltd.",
-            "Experienced Builders Inc.",
-            "Kamag-anak Construction Corp."
-        ]
 
         dramatic_pause(1)
-        for candidate in fake_candidates:
-            typewriter_effect(f"   Checking... {candidate}")
+        for bidder in self.bidders:
+            bidder = bidder['name']
+            typewriter_effect(f"   Checking... {bidder}")
             time.sleep(0.5)
-            if candidate != self.the_chosen_one:
-                typing_with_pauses(f"   ❌ Disqualified (random reasons)")
+            if bidder != self.the_chosen_one:
+                typing_with_pauses(f"   ❌ Disqualified ({random.choice(self.disqualification_reasons)})")
             else:
                 typing_with_pauses(f"   ✅ *Mysteriously passes all criteria*")
             time.sleep(0.8)
@@ -140,9 +147,9 @@ class ContractorSelectionSystem:
         dramatic_pause(2)
 
         typewriter_effect("\n💰 Contract Details:")
-        typewriter_effect("   Amount: ₱800M (highest bid)")
-        typewriter_effect("   Timeline: '18 months' (realistically: 5 years)")
-        typing_with_pauses("   Quality guarantee: 'Trust me bro'")
+        typing_with_pauses("   Amount: ₱800M (highest bid)")
+        typing_with_pauses("   Timeline: '18 months' or '3 days if you want'")
+        typing_with_pauses("   Quality guarantee: 'We are the DPWH'")
         dramatic_pause(2)
 
     def public_reaction(self):
@@ -154,7 +161,7 @@ class ContractorSelectionSystem:
         reactions = [
             "🤨 Netizen1: 'Random nga, randomly chosen before the bidding'",
             "😤 Netizen2: 'Yung company 2 months old lang pero nanalo?'",
-            "🤔 Netizen3: 'Same last name sa mayor... coincidence?'",
+            "🤔 Netizen3: 'Same last name ni ano... coincidence?'",
             "😂 Netizen4: 'Transparency = pwede ninyong makita pero di kayo pwedeng kumontra'",
             "🤷 Netizen5: 'Pilipinas pa ba surprised tayo?'"
         ]
@@ -178,7 +185,7 @@ if __name__ == "__main__":
     dramatic_pause(1)
 
     # Show all bidders
-    bidders = system.display_bidders()
+    system.display_bidders()
 
     # Show evaluation criteria
     system.evaluation_criteria()
@@ -198,4 +205,6 @@ if __name__ == "__main__":
     typing_with_pauses("🤦 'Déjà vu in action.' - Citizens")
     print("="*60)
 
-    typewriter_effect("\n\n# Random.seed(ninong_ni_mayor)")
+    typewriter_effect("\n\n# Random.seed(ninong_ni_senator)")
+
+    play_with_wait(SABOG_SOUND)

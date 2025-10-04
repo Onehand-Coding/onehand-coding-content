@@ -9,7 +9,6 @@ except ImportError:
 
 from .config import PROJECT_ROOT, SOUND_DIR
 
-
 # Initialize pygame mixer for sound effects
 if PYGAME_AVAILABLE:
     try:
@@ -29,6 +28,10 @@ NEVER_BACKDOWN = SOUND_DIR / "never-backdown.wav"
 EDUCATION_SOUND = SOUND_DIR / "education.wav"
 PERSONAL_SOUND = SOUND_DIR / "personal.wav"
 RELATIONSHIP_SOUND = SOUND_DIR / "relationship.wav"
+SABOG_SOUND = SOUND_DIR / "akoy-sabog-na.wav"
+CORRUPTION_1 = SOUND_DIR / "corruption-1.wav"
+CORRUPTION_2 = SOUND_DIR / "corruption-2.wav"
+CORRUPTION_3 = SOUND_DIR / "corruption-3.wav"
 
 
 def play_sound(sound_file, volume=0.3):
@@ -41,3 +44,19 @@ def play_sound(sound_file, volume=0.3):
         except Exception:
             # If there's an error playing the sound, continue without sound
             pass
+
+
+def play_with_wait(sound_file, wait_time=100, volume=0.3):
+    """Play sound and wait for it to finish."""
+    if sound_file.exists() and PYGAME_AVAILABLE:
+        sound_obj = mixer.Sound(str(sound_file))
+        try:
+            sound_obj.set_volume(volume)
+            sound_obj.play()
+        except Exception:
+            # If there's an error playing the sound, continue without sound
+            pass
+
+    # Lets wait for the sound to finish playing.
+    while mixer.get_busy():
+            pygame.time.wait(wait_time)

@@ -1,9 +1,7 @@
 import time
 import random
 
-import pygame
-
-from ..sounds import play_sound, NEVER_BACKDOWN, KEYPRESS_SOUND
+from ..sounds import play_sound, play_with_wait, NEVER_BACKDOWN, KEYPRESS_SOUND
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 class TransparencyMeter:
@@ -264,9 +262,4 @@ if __name__ == "__main__":
     typewriter_effect("#     promises += 1")
     typewriter_effect("#     accountability -= 1")
 
-    play_sound(NEVER_BACKDOWN)
-
-    # Lets wait for the final sound to finish playing.
-    import pygame.mixer
-    while pygame.mixer.get_busy():
-            pygame.time.wait(100)
+    play_with_wait(NEVER_BACKDOWN)

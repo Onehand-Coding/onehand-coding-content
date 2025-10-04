@@ -3,12 +3,11 @@
 
 import os
 import sys
-import argparse
 import subprocess
 from pathlib import Path
 from typing import Optional, List
 
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1' # Lets hide the pygame prompt.
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1" # Lets hide the pygame prompt.
 
 from .config import PROJECT_ROOT
 
@@ -41,8 +40,11 @@ def main():
     """Run the main function."""
     args = sys.argv
 
-    # Lets support running one script only for now.
-    if len(args) > 2:
+    # Lets support running one script at a time for now.
+    if len(args) != 2:
+        print("Choose a content srcipt to run!")
+        sys.exit(1)
+    elif len(args) > 2:
         print("Isa-isa script lang bro, mahina ang kalaban!")
         sys.exit(1)
 
