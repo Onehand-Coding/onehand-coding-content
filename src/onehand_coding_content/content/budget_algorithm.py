@@ -228,8 +228,8 @@ class Budget2025Reallocator:
         typing_with_pauses("   4. People's Welfare < Political Survival")
 
 
-# Demo usage
-if __name__ == "__main__":
+def main():
+    """Main entry point"""
     reallocator = Budget2025Reallocator()
 
     # Show original budget
@@ -270,3 +270,7 @@ if __name__ == "__main__":
     typewriter_effect("# # Output: Bayan gutom, politician busog 🍽️")
 
     play_with_wait(CORRUPTION_2)
+
+# Demo usage
+if __name__ == "__main__":
+    main()

@@ -14,6 +14,7 @@ class AyudaDistributionSystem:
         self.total_budget = 100_000_000_000  # 100 Billion
         self.remaining_budget = self.total_budget
         self.event_type = self._get_calamity_event()
+        print()
         typing_with_pauses(f"🚨 {self.event_type} AYUDA DISTRIBUTION SYSTEM v2.0 🚨", delay=0.03)
         print("="*60)
         dramatic_pause(1)
@@ -21,12 +22,12 @@ class AyudaDistributionSystem:
     def _get_calamity_event(self):
         """Randomly select a reason for 'ayuda'"""
         events = [
-            "Super Typhoon 'Hangin'",
-            "Earthquake 'Yumanig'",
-            "Volcanic Eruption 'Sumabog'",
+            "Super Typhoon",
+            "Earthquake",
+            "Volcanic Eruption",
             "Pandemic Wave 12",
             "Economic 'Crisis'",
-            "Holiday Season 'Pamasko'"
+            "Holiday Season"
         ]
         return random.choice(events)
 
@@ -121,8 +122,8 @@ class AyudaDistributionSystem:
         typing_with_pauses("🎖️  Team to receive commendation and bonuses!")
 
 
-# Run the simulation
-if __name__ == "__main__":
+def main():
+    """Main entry point"""
     system = AyudaDistributionSystem()
 
     # Check budget
@@ -144,3 +145,8 @@ if __name__ == "__main__":
     dramatic_pause(1)
     typing_with_pauses("\n🤔 Citizens: 'Success po sa ano?'")
     print("="*60)
+
+
+# Run the simulation
+if __name__ == "__main__":
+    main()

@@ -14,7 +14,9 @@ from .config import PROJECT_ROOT
 
 def run_script(script_name: str, args: list[str] = []):
     """Finds and runs a script."""
-    python_executable = sys.executable
+    import importlib.util
+    from pathlib import PosixPath
+
     content_dir = Path(__file__).parent / "content"
     script_path = content_dir / script_name
 
@@ -22,17 +24,31 @@ def run_script(script_name: str, args: list[str] = []):
         print(f"Script {script_path.name} not Found!")
         sys.exit(1)
 
-    module_name = f"src.onehand_coding_content.content.{script_name[:-3]}"  # Remove .py extension
-    module_command = [python_executable, "-m", module_name] + args
+    # Add the project root to sys.path to allow imports
+    if str(PROJECT_ROOT) not in sys.path:
+        sys.path.insert(0, str(PROJECT_ROOT))
+
+    # Get the module name without .py extension
+    module_name = Path(script_name).stem
+    full_module_name = f"src.onehand_coding_content.content.{module_name}"
+
+    # Load and execute the module
+    spec = importlib.util.spec_from_file_location(full_module_name, script_path)
+    module = importlib.util.module_from_spec(spec)
+
+    # Add the module to sys.modules to enable relative imports
+    sys.modules[full_module_name] = module
 
     try:
-        result = subprocess.call(module_command, cwd=PROJECT_ROOT)
-        # If module run fails, try direct execution
-        if result != 0:
-            command = [python_executable, str(script_path)] + args
-            subprocess.call(command)
+        spec.loader.exec_module(module)
+
+        # If the module has a main function, call it
+        if hasattr(module, 'main'):
+            module.main()
     except KeyboardInterrupt:
-        print("\n👋 Program interrupted by user. Bye...")
+        # Let the module handle its own interrupt behavior if it has proper handling
+        # If we get here, the module didn't handle its own interrupt, so we exit
+        print()  # Add a newline
         sys.exit(0)
 
 

@@ -179,8 +179,8 @@ class ContractorSelectionSystem:
         typing_with_pauses("   'May complaint ka? File a case! (Matagal yan, 10 years minimum)'")
 
 
-# Run the simulation
-if __name__ == "__main__":
+def main():
+    """Main entry point"""
     system = ContractorSelectionSystem()
     dramatic_pause(1)
 
@@ -208,3 +208,8 @@ if __name__ == "__main__":
     typewriter_effect("\n\n# Random.seed(ninong_ni_senator)")
 
     play_with_wait(SABOG_SOUND)
+
+
+# Run the simulation
+if __name__ == "__main__":
+    main()

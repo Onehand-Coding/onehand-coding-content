@@ -316,8 +316,8 @@ class FloodControlRealityCheck:
         typing_with_pauses("\n'It's not a bug. It's the system.' 🎭", delay=0.03)
 
 
-# Demo usage
-if __name__ == "__main__":
+def main():
+    """Main entry point"""
     system = FloodControlRealityCheck()
 
     # Show investment vs reality
@@ -356,3 +356,8 @@ if __name__ == "__main__":
     typewriter_effect("#     accountability = None")
 
     play_with_wait(CORRUPTION_3)
+
+
+# Demo usage
+if __name__ == "__main__":
+    main()

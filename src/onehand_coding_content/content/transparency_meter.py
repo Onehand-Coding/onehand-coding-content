@@ -218,8 +218,8 @@ class TransparencyMeter:
         typing_with_pauses("\n🤦 *Citizens still waiting ...*")
 
 
-# Run the simulation
-if __name__ == "__main__":
+def main():
+    """Main entry point."""
     meter = TransparencyMeter()
 
     # Initialize
@@ -263,3 +263,8 @@ if __name__ == "__main__":
     typewriter_effect("#     accountability -= 1")
 
     play_with_wait(NEVER_BACKDOWN)
+
+
+# Run the simulation
+if __name__ == "__main__":
+    main()
