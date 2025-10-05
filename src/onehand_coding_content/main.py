@@ -61,7 +61,7 @@ def main():
         print("Choose a content srcipt to run!")
         sys.exit(1)
     elif len(args) > 2:
-        print("Isa-isa script lang bro, mahina ang kalaban!")
+        print("Isa-isang script lang bro, mahina ang kalaban!")
         sys.exit(1)
 
     run_script(args[1])
