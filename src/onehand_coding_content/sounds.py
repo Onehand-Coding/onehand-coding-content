@@ -32,6 +32,8 @@ SABOG_SOUND = SOUND_DIR / "akoy-sabog-na.wav"
 CORRUPTION_1 = SOUND_DIR / "corruption-1.wav"
 CORRUPTION_2 = SOUND_DIR / "corruption-2.wav"
 CORRUPTION_3 = SOUND_DIR / "corruption-3.wav"
+DELAY = SOUND_DIR / "delay.wav"
+NO_PROMISES = SOUND_DIR / "no-promises.wav"
 
 
 def play_sound(sound_file, volume=0.3):
