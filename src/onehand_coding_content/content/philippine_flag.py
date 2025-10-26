@@ -9,6 +9,7 @@ import math
 import sys
 from pathlib import Path
 
+from ..sounds import play_with_wait, HERO
 from ..presentation import typing_with_pauses
 
 # Color codes
@@ -176,7 +177,7 @@ def print_header():
     print("\n")
 
 
-def print_historical_facts():11
+def print_historical_facts():
     """Print historical facts with political commentary"""
     print("\n")
     print("=" * 80)
@@ -336,6 +337,8 @@ def main():
         typing_with_pauses("🇵🇭 END OF RENDER. Mabuhay ang Pilipinas! (The real one, not the corrupted version.)")
         print("=" * 80)
         print("\n")
+
+        play_with_wait(HERO)
 
     except KeyboardInterrupt:
         print("\n\n")
