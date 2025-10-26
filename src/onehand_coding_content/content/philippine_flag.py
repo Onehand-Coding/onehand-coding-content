@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from ..sounds import play_with_wait, HERO
-from ..presentation import typing_with_pauses
+from ..presentation import typing_with_pauses, typewriter_effect
 
 # Color codes
 RESET = '\033[0m'
@@ -167,13 +167,13 @@ def print_header():
     print()
     print("=" * 80)
     time.sleep(0.3)
-    typing_with_pauses("RENDERING SOVEREIGNTY.EXE... ✓")
+    typewriter_effect("RENDERING SOVEREIGNTY.EXE... ✓")
     time.sleep(0.5)
-    typing_with_pauses("🇵🇭 Philippine Flag v1898.0 (Independence Patch)")
+    typewriter_effect("🇵🇭 Philippine Flag v1898.0 (Independence Patch)")
     time.sleep(0.5)
-    typing_with_pauses("Status: Rendering freedom... please stand for the flag 🫡")
+    typing_with_pauses("Status: Rendering freedom... please stand for the flag!")
     print("=" * 80)
-    time.sleep(0.8)
+    time.sleep(1)
     print("\n")
 
 
@@ -181,7 +181,7 @@ def print_historical_facts():
     """Print historical facts with political commentary"""
     print("\n")
     print("=" * 80)
-    typing_with_pauses("📜 FLAG.LOG (HISTORICAL DEBUG INFO)")
+    typewriter_effect("📜 FLAG.LOG (HISTORICAL DEBUG INFO)")
     print("=" * 80)
     time.sleep(0.5)
 
@@ -220,7 +220,7 @@ def print_historical_facts():
 
     # The spicy part
     print("\n" + "=" * 80)
-    typing_with_pauses("⚠️  CORRUPTION.LOG (SYSTEM WARNINGS)")
+    typewriter_effect("⚠️  CORRUPTION.LOG (SYSTEM WARNINGS)")
     print("=" * 80)
     time.sleep(0.8)
 
@@ -268,7 +268,7 @@ def print_historical_facts():
 
     # The brutal truth
     print("\n" + "=" * 80)
-    typing_with_pauses("💭 RUNTIME ERROR: INTEGRITY_CHECK_FAILED")
+    typewriter_effect("💭 RUNTIME ERROR: INTEGRITY_CHECK_FAILED")
     print("=" * 80)
     time.sleep(0.8)
 
@@ -303,7 +303,7 @@ def print_historical_facts():
 
     # Footer
     print("\n" + "=" * 80)
-    typing_with_pauses("📌 PATCH NOTES:")
+    typewriter_effect("📌 PATCH NOTES:")
     print("=" * 80)
     typing_with_pauses("   • TODO: Restore meaning behind symbols")
     typing_with_pauses("   • TODO: Elect leaders worthy of this flag")
@@ -342,7 +342,7 @@ def main():
 
     except KeyboardInterrupt:
         print("\n\n")
-        typing_with_pauses("⚠️  Render interrupted. Kinda like how democracy gets interrupted. 🤷")
+        typewriter_effect("⚠️  Render interrupted. Kinda like how democracy gets interrupted. 🤷")
         print("\n")
         sys.exit(0)
 
