@@ -3,17 +3,18 @@
 
 import os
 import sys
-import subprocess
+import asyncio
+import inspect
 from pathlib import Path
 from typing import Optional, List
 
-os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1" # Lets hide the pygame prompt.
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"  # Lets hide the pygame prompt.
 
 from .config import PROJECT_ROOT
 
 
 def run_script(script_name: str, args: list[str] = []):
-    """Finds and runs a script."""
+    """Finds and runs a script, handling both sync and async main functions."""
     import importlib.util
     from pathlib import PosixPath
 
@@ -42,9 +43,12 @@ def run_script(script_name: str, args: list[str] = []):
     try:
         spec.loader.exec_module(module)
 
-        # If the module has a main function, call it
+        # If the module has a main function, call it appropriately
         if hasattr(module, 'main'):
-            module.main()
+            if inspect.iscoroutinefunction(module.main):
+                asyncio.run(module.main())
+            else:
+                module.main()
     except KeyboardInterrupt:
         # Let the module handle its own interrupt behavior if it has proper handling
         # If we get here, the module didn't handle its own interrupt, so we exit
@@ -58,7 +62,7 @@ def main():
 
     # Lets support running one script at a time for now.
     if len(args) != 2:
-        print("Choose a content srcipt to run!")
+        print("Choose a content script to run!")
         sys.exit(1)
     elif len(args) > 2:
         print("Isa-isang script lang bro, mahina ang kalaban!")
