@@ -1,4 +1,3 @@
-from pathlib import Path
 
 try:
     import pygame
@@ -7,7 +6,7 @@ try:
 except ImportError:
     PYGAME_AVAILABLE = False
 
-from .config import PROJECT_ROOT, SOUND_DIR
+from .config import SOUND_DIR
 
 # Initialize pygame mixer for sound effects
 if PYGAME_AVAILABLE:

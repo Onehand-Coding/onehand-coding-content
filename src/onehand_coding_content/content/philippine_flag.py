@@ -7,8 +7,8 @@ With historical facts and political commentary
 import time
 import math
 import sys
-from pathlib import Path
 
+from ..config import LINE_LENGTH
 from ..sounds import play_with_wait, HERO
 from ..presentation import typing_with_pauses, typewriter_effect
 
@@ -165,14 +165,14 @@ def draw_flag():
 def print_header():
     """Print engaging header"""
     print()
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     time.sleep(0.3)
     typewriter_effect("RENDERING SOVEREIGNTY.EXE... ✓")
     time.sleep(0.5)
     typewriter_effect("🇵🇭 Philippine Flag v1898.0 (Independence Patch)")
     time.sleep(0.5)
     typing_with_pauses("Status: Rendering freedom... please stand for the flag!")
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     time.sleep(1)
     print("\n")
 
@@ -180,9 +180,9 @@ def print_header():
 def print_historical_facts():
     """Print historical facts with political commentary"""
     print("\n")
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     typewriter_effect("📜 FLAG.LOG (HISTORICAL DEBUG INFO)")
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     time.sleep(0.5)
 
     facts = [
@@ -219,9 +219,9 @@ def print_historical_facts():
     time.sleep(1)
 
     # The spicy part
-    print("\n" + "=" * 80)
+    print("\n" + "=" * LINE_LENGTH)
     typewriter_effect("⚠️  CORRUPTION.LOG (SYSTEM WARNINGS)")
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     time.sleep(0.8)
 
     corruption_facts = [
@@ -267,9 +267,9 @@ def print_historical_facts():
     time.sleep(1.5)
 
     # The brutal truth
-    print("\n" + "=" * 80)
+    print("\n" + "=" * LINE_LENGTH)
     typewriter_effect("💭 RUNTIME ERROR: INTEGRITY_CHECK_FAILED")
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     time.sleep(0.8)
 
     final_thoughts = [
@@ -302,14 +302,14 @@ def print_historical_facts():
     time.sleep(1.5)
 
     # Footer
-    print("\n" + "=" * 80)
+    print("\n" + "=" * LINE_LENGTH)
     typewriter_effect("📌 PATCH NOTES:")
-    print("=" * 80)
+    print("=" * LINE_LENGTH)
     typing_with_pauses("   • TODO: Restore meaning behind symbols")
     typing_with_pauses("   • TODO: Elect leaders worthy of this flag")
     typing_with_pauses("   • TODO: Make 'Maka-bansa' mean something again")
     typing_with_pauses("   • PRIORITY: Anti-Dynasty Law (pending since 1987)")
-    print("=" * 80)
+    print()
 
     time.sleep(1)
 
@@ -333,9 +333,9 @@ def main():
         draw_flag()
         print_historical_facts()
 
-        print("\n" + "=" * 80)
+        print("\n" + "=" * LINE_LENGTH)
         typing_with_pauses("🇵🇭 END OF RENDER. Mabuhay ang Pilipinas! (The real one, not the corrupted version.)")
-        print("=" * 80)
+        print("=" * LINE_LENGTH)
         print("\n")
 
         play_with_wait(HERO)

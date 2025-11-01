@@ -7,9 +7,8 @@ Filed by: Sen. Bam Aquino (September 2, 2025)
 """
 
 import time
-import random
-from datetime import datetime
 
+from ..config import LINE_LENGTH
 from ..sounds import play_with_wait, CORRUPTION_3, DELAY
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
@@ -27,9 +26,9 @@ class BlockchainBudgetAnalyzer:
         self.ghost_projects_found = 118_500_000_000  # ₱118.5B (2025 scandal)
         self.implementation_cost = "TBD (pero baka overpriced din)"
 
-        print("\n" + "="*70)
-        typing_with_pauses("⛓️  BLOCKCHAIN BUDGET BILL: REALITY CHECK SYSTEM", delay=0.03)
-        print("="*70)
+        print("\n" + "="*LINE_LENGTH)
+        typewriter_effect("⛓️  BLOCKCHAIN BUDGET BILL: REALITY CHECK SYSTEM")
+        print("="*LINE_LENGTH)
         print()
         typing_with_pauses("'Bitcoin transparent, bakit hindi national budget?' - Sen. Aquino")
         dramatic_pause(2)
@@ -38,9 +37,9 @@ class BlockchainBudgetAnalyzer:
 
     def explain_the_promise(self):
         """What the bill promises"""
-        print("\n" + "="*70)
-        typing_with_pauses("📋 THE PROMISE: What SB 1330 Claims", delay=0.03)
-        print("="*70)
+        print("\n" + "="*LINE_LENGTH)
+        typewriter_effect("📋 THE PROMISE: What SB 1330 Claims")
+        print("="*LINE_LENGTH)
         dramatic_pause(1)
 
         promises = [
@@ -53,7 +52,7 @@ class BlockchainBudgetAnalyzer:
         ]
 
         for feature, description in promises:
-            typewriter_effect(f"\n✅ {feature}:")
+            typing_with_pauses(f"\n✅ {feature}:")
             typing_with_pauses(f"   → {description}")
             time.sleep(0.8)
 
@@ -65,12 +64,12 @@ class BlockchainBudgetAnalyzer:
 
     def technical_reality_check(self):
         """The technical side nobody talks about"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("🔧 TECHNICAL REALITY CHECK", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("🔧 TECHNICAL REALITY CHECK")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n📊 Let's Talk About What Blockchain ACTUALLY Does:")
+        typing_with_pauses("\n📊 Let's Talk About What Blockchain ACTUALLY Does:")
         dramatic_pause(1)
 
         technical_facts = [
@@ -97,7 +96,7 @@ class BlockchainBudgetAnalyzer:
         ]
 
         for item in technical_facts:
-            typewriter_effect(f"\n⚡ {item['concept']}")
+            typing_with_pauses(f"\n⚡ {item['concept']}")
             time.sleep(0.8)
             typing_with_pauses(f"   💭 Reality: {item['reality']}")
             time.sleep(1)
@@ -114,12 +113,12 @@ class BlockchainBudgetAnalyzer:
 
     def advantages_deep_dive(self):
         """Real advantages (give credit where it's due)"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("✅ GENUINE ADVANTAGES (Credit Where Due)", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("✅ GENUINE ADVANTAGES (Credit Where Due)")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n🎯 What Blockchain ACTUALLY Solves:")
+        typing_with_pauses("\n🎯 What Blockchain ACTUALLY Solves:")
         dramatic_pause(1)
 
         advantages = [
@@ -156,7 +155,7 @@ class BlockchainBudgetAnalyzer:
         ]
 
         for item in advantages:
-            typewriter_effect(f"\n📌 {item['advantage']}")
+            typing_with_pauses(f"\n📌 {item['advantage']}")
             time.sleep(0.8)
             typing_with_pauses(f"   ℹ️  What it means: {item['explanation']}")
             time.sleep(1)
@@ -174,12 +173,12 @@ class BlockchainBudgetAnalyzer:
 
     def disadvantages_reality(self):
         """The hard truths nobody wants to hear"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("⚠️  THE HARD TRUTHS (What They Don't Say)", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("⚠️  THE HARD TRUTHS (What They Don't Say)")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n🚨 Critical Problems Blockchain CANNOT Solve:")
+        typing_with_pauses("\n🚨 Critical Problems Blockchain CANNOT Solve:")
         dramatic_pause(1)
 
         problems = [
@@ -213,7 +212,7 @@ class BlockchainBudgetAnalyzer:
             },
             {
                 "problem": "The 'Complexity' Problem",
-                "description": "70% of Filipinos don't understand blockchain (Sept 2025 data)",
+                "description": "LINE_LENGTH% of Filipinos don't understand blockchain (Sept 2025 data)",
                 "scenario": "How can citizens audit kung di nila gets ang technology?",
                 "who_benefits": "Those who prefer ignorant citizens",
                 "severity": "HIGH"
@@ -235,7 +234,7 @@ class BlockchainBudgetAnalyzer:
         ]
 
         for item in problems:
-            typewriter_effect(f"\n🔴 {item['problem']}")
+            typing_with_pauses(f"\n🔴 {item['problem']}")
             time.sleep(0.8)
             typing_with_pauses(f"   📖 What it means: {item['description']}")
             time.sleep(1)
@@ -250,15 +249,15 @@ class BlockchainBudgetAnalyzer:
 
     def the_real_bottleneck(self):
         """The uncomfortable truth"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("💥 THE REAL BOTTLENECK", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("💥 THE REAL BOTTLENECK")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n🎯 Here's What Actually Needs to Happen:")
+        typing_with_pauses("\n🎯 Here's What Actually Needs to Happen:")
         dramatic_pause(1)
 
-        typewriter_effect("\n1️⃣  BEFORE Blockchain (The Prerequisites):")
+        typing_with_pauses("\n1️⃣  BEFORE Blockchain (The Prerequisites):")
         time.sleep(1)
         prerequisites = [
             "Strong anti-corruption laws (with enforcement!)",
@@ -272,7 +271,7 @@ class BlockchainBudgetAnalyzer:
             time.sleep(0.8)
 
         dramatic_pause(2)
-        typewriter_effect("\n📊 Status Check:")
+        typing_with_pauses("\n📊 Status Check:")
         time.sleep(1)
         typing_with_pauses("   ₱118.5B in ghost projects (2025)")
         typing_with_pauses("   Independent Commission Investigation (2025)")
@@ -281,7 +280,7 @@ class BlockchainBudgetAnalyzer:
         typing_with_pauses("   Political will: 404 Not Found ❌")
         dramatic_pause(2)
 
-        typewriter_effect("\n💭 The Uncomfortable Truth:")
+        typing_with_pauses("\n💭 The Uncomfortable Truth:")
         dramatic_pause(1)
         typing_with_pauses("   'Blockchain can make corruption VISIBLE.'")
         dramatic_pause(1)
@@ -292,7 +291,7 @@ class BlockchainBudgetAnalyzer:
         typing_with_pauses("   'to TRANSPARENT corruption.' 🤷")
         dramatic_pause(3)
 
-        typewriter_effect("\n🔄 The Pattern:")
+        typing_with_pauses("\n🔄 The Pattern:")
         time.sleep(1)
         typing_with_pauses("   ├─ Problem discovered: Corruption")
         time.sleep(0.5)
@@ -309,12 +308,12 @@ class BlockchainBudgetAnalyzer:
 
     def simulate_blockchain_scenario(self):
         """Simulate how it would actually work"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("🎮 SIMULATION: Blockchain Budget in Action", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("🎮 SIMULATION: Blockchain Budget in Action")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n📅 Scenario: 2026 Budget (Blockchain Enabled)")
+        typing_with_pauses("\n📅 Scenario: 2026 Budget (Blockchain Enabled)")
         dramatic_pause(1)
 
         events = [
@@ -351,7 +350,7 @@ class BlockchainBudgetAnalyzer:
         ]
 
         for event in events:
-            typewriter_effect(f"\n📆 {event['time']}")
+            typing_with_pauses(f"\n📆 {event['time']}")
             time.sleep(0.8)
             typing_with_pauses(f"   📢 Event: {event['event']}")
             time.sleep(1)
@@ -361,7 +360,7 @@ class BlockchainBudgetAnalyzer:
             dramatic_pause(2)
 
         dramatic_pause(2)
-        typewriter_effect("\n📊 Year-End Summary:")
+        typing_with_pauses("\n📊 Year-End Summary:")
         time.sleep(1)
         typing_with_pauses("   ✅ Blockchain: Working perfectly")
         typing_with_pauses("   ✅ Transparency: 100%")
@@ -373,9 +372,9 @@ class BlockchainBudgetAnalyzer:
 
     def expert_opinions(self):
         """What actual experts say (with context)"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("🗣️  EXPERT OPINIONS (The Nuanced Take)", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("🗣️  EXPERT OPINIONS (The Nuanced Take)")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         opinions = [
@@ -412,7 +411,7 @@ class BlockchainBudgetAnalyzer:
         ]
 
         for opinion in opinions:
-            typewriter_effect(f"\n👤 {opinion['expert']}")
+            typing_with_pauses(f"\n👤 {opinion['expert']}")
             time.sleep(0.8)
             typing_with_pauses(f"   📍 Position: {opinion['position']}")
             time.sleep(0.8)
@@ -422,7 +421,7 @@ class BlockchainBudgetAnalyzer:
             dramatic_pause(1.5)
 
         dramatic_pause(2)
-        typewriter_effect("\n🎯 Consensus:")
+        typing_with_pauses("\n🎯 Consensus:")
         dramatic_pause(1)
         typing_with_pauses("   'Blockchain is a TOOL, not a MAGIC WAND.'")
         dramatic_pause(1)
@@ -431,15 +430,15 @@ class BlockchainBudgetAnalyzer:
 
     def cost_benefit_analysis(self):
         """The money question"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("💰 COST-BENEFIT ANALYSIS", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("💰 COST-BENEFIT ANALYSIS")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n📊 Let's Talk Money:")
+        typing_with_pauses("\n📊 Let's Talk Money:")
         dramatic_pause(1)
 
-        typewriter_effect("\n💸 ESTIMATED COSTS:")
+        typing_with_pauses("\n💸 ESTIMATED COSTS:")
         time.sleep(1)
         costs = [
             ("Blockchain Infrastructure", "₱2-5 Billion", "Servers, nodes, network"),
@@ -447,7 +446,7 @@ class BlockchainBudgetAnalyzer:
             ("Integration", "₱1-3 Billion", "Connect all gov't systems"),
             ("Training", "₱500M - 1B", "Teach people how to use it"),
             ("Maintenance (yearly)", "₱500M - 2B", "Keep it running"),
-            ("Public Education", "₱1-2 Billion", "70% don't understand blockchain")
+            ("Public Education", "₱1-2 Billion", "LINE_LENGTH% don't understand blockchain")
         ]
 
         total_low = 8
@@ -462,7 +461,7 @@ class BlockchainBudgetAnalyzer:
         typing_with_pauses(f"\n   📈 TOTAL ESTIMATED COST: ₱{total_low}-{total_high} Billion")
         dramatic_pause(2)
 
-        typewriter_effect("\n✨ POTENTIAL BENEFITS:")
+        typing_with_pauses("\n✨ POTENTIAL BENEFITS:")
         time.sleep(1)
         typing_with_pauses("   IF political will exists:")
         typing_with_pauses("   • Reduced post-approval tampering: Priceless")
@@ -477,7 +476,7 @@ class BlockchainBudgetAnalyzer:
         typing_with_pauses("   • False sense of security: Dangerous")
         dramatic_pause(3)
 
-        typewriter_effect("\n🤔 The ₱21 Billion Question:")
+        typing_with_pauses("\n🤔 The ₱21 Billion Question:")
         dramatic_pause(1)
         typing_with_pauses("   'Is blockchain the best use of ₱21B?'")
         dramatic_pause(1)
@@ -492,17 +491,17 @@ class BlockchainBudgetAnalyzer:
 
     def generate_verdict(self):
         """The final, balanced verdict"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("⚖️  FINAL VERDICT: Should We Do This?", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("⚖️  FINAL VERDICT: Should We Do This?")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\n🎯 THE HONEST ANSWER:")
+        typing_with_pauses("\n🎯 THE HONEST ANSWER:")
         dramatic_pause(1)
         typing_with_pauses("   It's complicated. (Shocker, I know.)")
         dramatic_pause(2)
 
-        typewriter_effect("\n✅ PASS THE BILL IF:")
+        typing_with_pauses("\n✅ PASS THE BILL IF:")
         time.sleep(1)
         conditions_pass = [
             "It's PAIRED with anti-corruption law reforms",
@@ -519,7 +518,7 @@ class BlockchainBudgetAnalyzer:
 
         dramatic_pause(2)
 
-        typewriter_effect("\n❌ DON'T PASS (or Delay) IF:")
+        typing_with_pauses("\n❌ DON'T PASS (or Delay) IF:")
         time.sleep(1)
         conditions_fail = [
             "It's seen as THE solution (it's not, it's A tool)",
@@ -536,7 +535,7 @@ class BlockchainBudgetAnalyzer:
 
         dramatic_pause(3)
 
-        typewriter_effect("\n💡 THE TECH PERSPECTIVE:")
+        typing_with_pauses("\n💡 THE TECH PERSPECTIVE:")
         dramatic_pause(1)
         typing_with_pauses("   Blockchain CAN help. It's not snake oil.")
         dramatic_pause(1)
@@ -549,7 +548,7 @@ class BlockchainBudgetAnalyzer:
         typing_with_pauses("   ...you just have ₱21B worth of crime footage. 🎥")
         dramatic_pause(3)
 
-        typewriter_effect("\n🎭 THE PHILIPPINE REALITY:")
+        typing_with_pauses("\n🎭 THE PHILIPPINE REALITY:")
         dramatic_pause(1)
         typing_with_pauses("   2025: ₱118.5B ghost projects exposed")
         typing_with_pauses("   2025: ICI investigation = closed door")
@@ -563,7 +562,7 @@ class BlockchainBudgetAnalyzer:
         typing_with_pauses("   ...in a car with no brakes. 🏎️❌🛑")
         dramatic_pause(3)
 
-        typewriter_effect("\n🔮 PREDICTION:")
+        typing_with_pauses("\n🔮 PREDICTION:")
         dramatic_pause(1)
         typing_with_pauses("   IF passed without reforms:")
         time.sleep(1)
@@ -608,9 +607,9 @@ def main():
     analyzer.generate_verdict()
 
     # Closing thoughts
-    print("\n\n" + "="*70)
-    typing_with_pauses("💭 CLOSING THOUGHT", delay=0.03)
-    print("="*70)
+    print("\n\n" + "="*LINE_LENGTH)
+    typewriter_effect("💭 CLOSING THOUGHT")
+    print("="*LINE_LENGTH)
     dramatic_pause(2)
 
     typing_with_pauses("Sen. Aquino's heart is in the right place. ❤️")
@@ -632,14 +631,14 @@ def main():
     typing_with_pauses("We're just putting corruption on a very expensive ledger. 📒💸")
     dramatic_pause(2)
 
-    typewriter_effect("\n\n# Code representation:")
-    typewriter_effect("# if political_will == 0:")
-    typewriter_effect("#     blockchain.transparency = 'High'")
-    typewriter_effect("#     corruption.visibility = 'High'")
-    typewriter_effect("#     accountability = 0  # Still zero")
-    typewriter_effect("#     return 'Expensive theater'")
-    typewriter_effect("# else:")
-    typewriter_effect("#     return 'Genuine reform'  # But we're still in the if block")
+    typing_with_pauses("\n\n# Code representation:")
+    typing_with_pauses("# if political_will == 0:")
+    typing_with_pauses("#     blockchain.transparency = 'High'")
+    typing_with_pauses("#     corruption.visibility = 'High'")
+    typing_with_pauses("#     accountability = 0  # Still zero")
+    typing_with_pauses("#     return 'Expensive theater'")
+    typing_with_pauses("# else:")
+    typing_with_pauses("#     return 'Genuine reform'  # But we're still in the if block")
 
     play_with_wait(CORRUPTION_3)
     play_with_wait(DELAY)

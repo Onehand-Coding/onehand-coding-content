@@ -12,10 +12,9 @@ This is not a bug. This is a FEATURE.
 """
 
 import time
-import random
-from datetime import datetime, timedelta
+from datetime import datetime
 
-from ..sounds import play_with_wait, CORRUPTION_3, CORRUPTION_2, NO_PROMISES
+from ..sounds import play_with_wait, CORRUPTION_3, CORRUPTION_2
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 
@@ -56,7 +55,7 @@ class JusticeSystemSimulator:
     def display_header(self):
         """Display shocking header"""
         print("\n" + "="*70)
-        typing_with_pauses("⚖️  PHILIPPINE JUSTICE SYSTEM: PATTERN ANALYSIS")
+        typewriter_effect("⚖️  PHILIPPINE JUSTICE SYSTEM: PATTERN ANALYSIS")
         print("="*70)
         print()
         typing_with_pauses(f"📅 Date: {self.current_date.strftime('%B %d, %Y')}")
@@ -67,7 +66,7 @@ class JusticeSystemSimulator:
     def compare_scandals(self):
         """Side-by-side comparison"""
         print("\n" + "="*70)
-        typing_with_pauses("📊 TALE OF TWO CORRUPTION SCANDALS")
+        typewriter_effect("📊 TALE OF TWO CORRUPTION SCANDALS")
         print("="*70)
         dramatic_pause(1)
 
@@ -80,7 +79,7 @@ class JusticeSystemSimulator:
         time.sleep(0.5)
         typing_with_pauses(f"   👨‍⚖️ Big Fish Convicted: {self.napoles_scandal['big_fish_jailed']}")
         time.sleep(0.5)
-        typing_with_pauses(f"   ✅ Napoles Convicted: Yes (in OTHER cases)")
+        typing_with_pauses("   ✅ Napoles Convicted: Yes (in OTHER cases)")
         time.sleep(0.5)
         typing_with_pauses(f"   ❌ Acquitted TODAY: {', '.join(self.napoles_scandal['masterminds_acquitted_today'])}")
         dramatic_pause(2)
@@ -114,7 +113,7 @@ class JusticeSystemSimulator:
     def timeline_of_justice(self):
         """Show how long justice takes"""
         print("\n\n" + "="*70)
-        typing_with_pauses("⏰ PORK BARREL SCAM: TIMELINE OF 'JUSTICE'")
+        typewriter_effect("⏰ PORK BARREL SCAM: TIMELINE OF 'JUSTICE'")
         print("="*70)
         dramatic_pause(1)
 
@@ -150,7 +149,7 @@ class JusticeSystemSimulator:
     def predict_flood_scandal_future(self):
         """Predict what will happen to flood control scam"""
         print("\n\n" + "="*70)
-        typing_with_pauses("🔮 FLOOD CONTROL SCAM: PREDICTED TIMELINE")
+        typewriter_effect("🔮 FLOOD CONTROL SCAM: PREDICTED TIMELINE")
         print("="*70)
         dramatic_pause(2)
 
@@ -199,7 +198,7 @@ class JusticeSystemSimulator:
     def the_transparency_problem(self):
         """Highlight the transparency issue"""
         print("\n\n" + "="*70)
-        typing_with_pauses("👁️  THE TRANSPARENCY PROBLEM")
+        typewriter_effect("👁️  THE TRANSPARENCY PROBLEM")
         print("="*70)
         dramatic_pause(2)
 
@@ -236,7 +235,7 @@ class JusticeSystemSimulator:
     def existential_questions(self):
         """Address the deep questions"""
         print("\n\n" + "="*70)
-        typing_with_pauses("💭 THE QUESTIONS THAT HAUNT US")
+        typewriter_effect("💭 THE QUESTIONS THAT HAUNT US")
         print("="*70)
         dramatic_pause(2)
 
@@ -260,7 +259,7 @@ class JusticeSystemSimulator:
         for i, (question, answer) in enumerate(questions, 1):
             typing_with_pauses(f"\n   ❓ Question {i}: {question}")
             dramatic_pause(2)
-            typing_with_pauses(f"   💡 Answer:")
+            typing_with_pauses("   💡 Answer:")
             for line in answer.split('\n'):
                 typing_with_pauses(f"      {line}")
                 time.sleep(1)
@@ -328,7 +327,7 @@ flood_control_result = philippine_justice_system("Flood Control")
     def final_message(self):
         """The message of resolve"""
         print("\n\n" + "="*70)
-        typing_with_pauses("🔥 TO THE CURRENT GENERATION", delay=0.04)
+        typewriter_effect("🔥 TO THE CURRENT GENERATION", delay=0.04)
         print("="*70)
         dramatic_pause(2)
 

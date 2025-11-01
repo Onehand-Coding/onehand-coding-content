@@ -25,7 +25,7 @@ class IndependentCommission:
         typing_with_pauses("   ⚠️  Marcos cousin implicated: Yes")
         time.sleep(1.5)
 
-        typewriter_effect("\n   ❌ Independence Score: QUESTIONABLE")
+        typing_with_pauses("\n   ❌ Independence Score: QUESTIONABLE")
         print()
         time.sleep(1)
 
@@ -45,7 +45,7 @@ class IndependentCommission:
         time.sleep(2)
 
         # Public sentiment with typewriter
-        typewriter_effect("\n📢 Public Sentiment:")
+        typing_with_pauses("\n📢 Public Sentiment:")
         time.sleep(0.5)
 
         sentiments = [
@@ -93,7 +93,7 @@ class IndependentCommission:
         time.sleep(2)
 
         # Translation with typewriter effect
-        typewriter_effect("\n💬 Translation:")
+        typing_with_pauses("\n💬 Translation:")
         time.sleep(0.5)
         typing_with_pauses(
             "   'Pwede kaming magtanong pero, kung ayaw sumagot, wala kaming magagawa.'"
@@ -140,8 +140,9 @@ class IndependentCommission:
 
 def main():
     """Entry point"""
+    print()
     print("="*60)
-    typing_with_pauses("FLOOD CONTROL CORRUPTION: GOVERNMENT RESPONSE CHECK")
+    typewriter_effect("FLOOD CONTROL CORRUPTION: GOVERNMENT RESPONSE CHECK")
     print("="*60)
     print()
 

@@ -1,6 +1,6 @@
 import time
-import random
 
+from ..config import LINE_LENGTH
 from ..sounds import play_with_wait, CORRUPTION_2
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
@@ -21,10 +21,11 @@ class RiceCrisisSimulator:
         self.government_rice_buffer = 0  # "exists"
 
         print()
-        print("="*70)
-        typing_with_pauses("RICE PRICE CRISIS SIMULATOR v2025", delay=0.03)
-        print("="*70)
+        print("="*LINE_LENGTH)
+        typewriter_effect("RICE PRICE CRISIS SIMULATOR v2025")
+        print("="*LINE_LENGTH)
         print()
+        dramatic_pause(1)
         typing_with_pauses("Feeding the nation... with spreadsheets! (charts only)")
         dramatic_pause(2)
 
@@ -33,8 +34,8 @@ class RiceCrisisSimulator:
         typewriter_effect("\nMeet Farmer Juan...")
         dramatic_pause(2)
 
-        typewriter_effect("\nJUAN'S PROFILE:")
-        print("-"*70)
+        typing_with_pauses("\nJUAN'S PROFILE:")
+        print("-"*LINE_LENGTH)
         time.sleep(0.5)
 
         typing_with_pauses(f"   * Daily Income: P{self.farmer_income_daily}")
@@ -48,25 +49,25 @@ class RiceCrisisSimulator:
 
     def show_price_history(self):
         """Show how rice prices destroyed purchasing power"""
-        print("\n\n" + "="*70)
+        print("\n\n" + "="*LINE_LENGTH)
         typewriter_effect("RICE PRICE HISTORY")
-        print("="*70)
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect(f"\n2020 (Pre-Crisis): P{self.rice_price_2020}/kilo")
+        typing_with_pauses(f"\n2020 (Pre-Crisis): P{self.rice_price_2020}/kilo")
         time.sleep(1)
-        typewriter_effect("   Status: AFFORDABLE (kinda)")
+        typing_with_pauses("   Status: AFFORDABLE (kinda)")
         time.sleep(1)
 
-        typewriter_effect(f"\n2025 (Now): P{self.rice_price_2025}/kilo")
+        typing_with_pauses(f"\n2025 (Now): P{self.rice_price_2025}/kilo")
         time.sleep(1)
-        typewriter_effect("   Status: YOUR SALARY BETTER INCREASED")
+        typing_with_pauses("   Status: YOUR SALARY BETTER INCREASED")
 
         price_increase = ((self.rice_price_2025 - self.rice_price_2020) / self.rice_price_2020) * 100
         time.sleep(1)
 
         print("\n")
-        typewriter_effect(f"Price Increase: {price_increase:.1f}%")
+        typing_with_pauses(f"Price Increase: {price_increase:.1f}%")
         dramatic_pause(2)
 
         typing_with_pauses("Juan Salary Increase: 0%")
@@ -74,9 +75,9 @@ class RiceCrisisSimulator:
 
     def calculate_buying_power(self):
         """The devastating math of lost purchasing power"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("THE MATH (Prepare yourself)", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("THE MATH (Prepare yourself)")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         # How much rice could he buy?
@@ -84,42 +85,42 @@ class RiceCrisisSimulator:
         kilos_2025 = self.farmer_income_daily / self.rice_price_2025
         loss = ((kilos_2020 - kilos_2025) / kilos_2020) * 100
 
-        typewriter_effect("\nWith P500 daily income:")
+        typing_with_pauses("\nWith P500 daily income:")
         time.sleep(1)
 
-        typewriter_effect(f"\n   2020: Juan could buy {kilos_2020:.2f} kilos/day")
+        typing_with_pauses(f"\n   2020: Juan could buy {kilos_2020:.2f} kilos/day")
         time.sleep(1)
-        typewriter_effect(f"   2025: Juan can buy {kilos_2025:.2f} kilos/day")
+        typing_with_pauses(f"   2025: Juan can buy {kilos_2025:.2f} kilos/day")
         dramatic_pause(2)
 
-        typewriter_effect(f"\nPURCHASING POWER LOSS: {loss:.1f}%")
+        typing_with_pauses(f"\nPURCHASING POWER LOSS: {loss:.1f}%")
         time.sleep(1)
         typing_with_pauses("   (His salary stayed the same. Rice decided to betray him.)")
         dramatic_pause(2)
 
     def family_needs_vs_reality(self):
         """Show the gap between what family needs and what Juan can afford"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("JUAN'S FAMILY REALITY CHECK", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("JUAN'S FAMILY REALITY CHECK")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         family_rice_daily = 2.5  # kilos needed to not starve
         cost_2020 = family_rice_daily * self.rice_price_2020
         cost_2025 = family_rice_daily * self.rice_price_2025
 
-        typewriter_effect(f"\nFamily needs per day: {family_rice_daily} kilos")
+        typing_with_pauses(f"\nFamily needs per day: {family_rice_daily} kilos")
         dramatic_pause(2)
 
-        typewriter_effect("\nCOST COMPARISON:")
+        typing_with_pauses("\nCOST COMPARISON:")
         time.sleep(1)
 
-        typewriter_effect(f"\n   2020: P{cost_2020:.2f}/day")
+        typing_with_pauses(f"\n   2020: P{cost_2020:.2f}/day")
         time.sleep(0.5)
         typing_with_pauses("   Juan: OKAY nakakabili pa")
         time.sleep(1)
 
-        typewriter_effect(f"\n   2025: P{cost_2025:.2f}/day")
+        typing_with_pauses(f"\n   2025: P{cost_2025:.2f}/day")
         time.sleep(0.5)
         typing_with_pauses("   Juan: KUMUSTA NA ANG BUHAY")
         dramatic_pause(2)
@@ -128,8 +129,8 @@ class RiceCrisisSimulator:
         monthly_deficit = daily_deficit * 30
 
         print("\n")
-        typewriter_effect(f"Daily Deficit: P{daily_deficit:.2f}")
-        typewriter_effect(f"Monthly Deficit: P{monthly_deficit:,.2f}")
+        typing_with_pauses(f"Daily Deficit: P{daily_deficit:.2f}")
+        typing_with_pauses(f"Monthly Deficit: P{monthly_deficit:,.2f}")
         dramatic_pause(2)
 
         typing_with_pauses("\nJuan: Paano ko kakainin ang pamilya?")
@@ -139,16 +140,16 @@ class RiceCrisisSimulator:
 
     def tariff_system_explained(self):
         """Show how tariffs keep prices high"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("THE TARIFF SCAM EXPLAINED", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("THE TARIFF SCAM EXPLAINED")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\nOfficial Narrative:")
-        typewriter_effect("   We need tariffs to protect local farmers!")
+        typing_with_pauses("\nOfficial Narrative:")
+        typing_with_pauses("   We need tariffs to protect local farmers!")
         dramatic_pause(1)
 
-        typewriter_effect("\nReality Check:")
+        typing_with_pauses("\nReality Check:")
         time.sleep(1)
         typing_with_pauses("   * Import tariff: 35% on rice")
         time.sleep(1)
@@ -161,16 +162,16 @@ class RiceCrisisSimulator:
         typing_with_pauses("   * Local farmers: Also suffering (lower quality competition)")
         dramatic_pause(2)
 
-        typewriter_effect("\nJuan: I'm a farmer but even I can't afford rice!")
+        typing_with_pauses("\nJuan: I'm a farmer but even I can't afford rice!")
         dramatic_pause(1)
         typing_with_pauses("Government: Mission accomplished!")
         dramatic_pause(2)
 
     def government_solutions_vs_reality(self):
         """Compare what government claims vs reality"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("GOVERNMENT SOLUTIONS vs REALITY", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("GOVERNMENT SOLUTIONS vs REALITY")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         solutions = [
@@ -197,7 +198,7 @@ class RiceCrisisSimulator:
         ]
 
         for i, solution in enumerate(solutions, 1):
-            typewriter_effect(f"\nSolution #{i}: {solution['claim']}")
+            typing_with_pauses(f"\nSolution #{i}: {solution['claim']}")
             time.sleep(1)
             typewriter_effect(f"   Status: {solution['status']}")
             time.sleep(0.5)
@@ -206,9 +207,9 @@ class RiceCrisisSimulator:
 
     def simulate_juan_buying_rice(self):
         """Simulate Juan's actual journey to buy rice"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("JUAN'S ACTUAL DAY: BUYING RICE", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("JUAN'S ACTUAL DAY: BUYING RICE")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         events = [
@@ -225,25 +226,25 @@ class RiceCrisisSimulator:
         ]
 
         for time_slot, event in events:
-            typewriter_effect(f"\n{time_slot}: {event}")
+            typing_with_pauses(f"\n{time_slot}: {event}")
             time.sleep(1)
 
         dramatic_pause(2)
 
     def final_verdict(self):
         """The brutal final summary"""
-        print("\n\n" + "="*70)
-        typing_with_pauses("FINAL VERDICT: THE IMPOSSIBLE EQUATION", delay=0.03)
-        print("="*70)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("FINAL VERDICT: THE IMPOSSIBLE EQUATION")
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
-        typewriter_effect("\nTHE NUMBERS:")
-        typewriter_effect(f"   Juan Income: P{self.farmer_income_daily}/day")
-        typewriter_effect(f"   Family Rice Need: P{2.5 * self.rice_price_2025:.2f}/day")
-        typewriter_effect(f"   Daily Deficit: P{(2.5 * self.rice_price_2025) - self.farmer_income_daily:.2f}")
+        typing_with_pauses("\nTHE NUMBERS:")
+        typing_with_pauses(f"   Juan Income: P{self.farmer_income_daily}/day")
+        typing_with_pauses(f"   Family Rice Need: P{2.5 * self.rice_price_2025:.2f}/day")
+        typing_with_pauses(f"   Daily Deficit: P{(2.5 * self.rice_price_2025) - self.farmer_income_daily:.2f}")
         dramatic_pause(2)
 
-        typewriter_effect("\nTHE CONTRADICTION:")
+        typing_with_pauses("\nTHE CONTRADICTION:")
         typing_with_pauses("   * Juan GROWS rice")
         time.sleep(1)
         typing_with_pauses("   * But can NOT AFFORD to eat it")
@@ -255,17 +256,17 @@ class RiceCrisisSimulator:
         typing_with_pauses("   * Logic level: BROKEN")
         dramatic_pause(2)
 
-        typewriter_effect("\nWHO BENEFITS:")
-        typewriter_effect("   YES: Monopoly rice importers (make huge markups)")
-        typewriter_effect("   YES: Government (tariff taxes)")
-        typewriter_effect("   YES: Hoarders (buy low, sell high)")
-        typewriter_effect("   NO: Juan (the farmer)")
-        typewriter_effect("   NO: Families (everyone else)")
+        typing_with_pauses("\nWHO BENEFITS:")
+        typing_with_pauses("   YES: Monopoly rice importers (make huge markups)")
+        typing_with_pauses("   YES: Government (tariff taxes)")
+        typing_with_pauses("   YES: Hoarders (buy low, sell high)")
+        typing_with_pauses("   NO: Juan (the farmer)")
+        typing_with_pauses("   NO: Families (everyone else)")
         dramatic_pause(2)
 
-        print("\n" + "="*70)
-        typing_with_pauses("CODE REPRESENTATION:", delay=0.03)
-        print("="*70)
+        print("\n" + "="*LINE_LENGTH)
+        typing_with_pauses("CODE REPRESENTATION:")
+        print("="*LINE_LENGTH)
 
         typewriter_effect("\nif government_protects_farmers:")
         typewriter_effect("    farmers_starve = True")
@@ -305,9 +306,9 @@ def main():
     # Final verdict
     simulator.final_verdict()
 
-    print("\n\n" + "="*70)
-    typing_with_pauses("POST-SCRIPT", delay=0.03)
-    print("="*70)
+    print("\n\n" + "="*LINE_LENGTH)
+    typing_with_pauses("POST-SCRIPT")
+    print("="*LINE_LENGTH)
     dramatic_pause(1)
 
     typing_with_pauses("Juan grew the rice.")
@@ -319,7 +320,7 @@ def main():
     typing_with_pauses("Statistics looked good on paper.")
     dramatic_pause(2)
 
-    typewriter_effect("\n~fin~ Rice Crisis")
+    typing_with_pauses("\n~fin~ Rice Crisis")
 
     play_with_wait(CORRUPTION_2)
 

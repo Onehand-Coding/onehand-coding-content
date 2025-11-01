@@ -4,10 +4,8 @@ A stark look at inherited power in Philippine politics
 """
 
 import time
-import sys
 import signal
 import random
-import itertools
 
 from ..sounds import play_with_wait, CORRUPTION_3
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
@@ -30,27 +28,27 @@ def run_dynasty_loop():
             typewriter_effect(f"\n>>> ELECTION YEAR {year}")
             dramatic_pause(1)
 
-            typewriter_effect("  Ballots being cast...")
+            typing_with_pauses("  Ballots being cast...")
             time.sleep(1)
-            typewriter_effect("  Votes being counted...")
+            typing_with_pauses("  Votes being counted...")
             time.sleep(1)
 
             # Election Results - Same Surnames Win
-            typing_with_pauses(f"\n  📊 RESULTS: Same families win again!")
+            typing_with_pauses("\n  📊 RESULTS: Same families win again!")
             time.sleep(0.5)
 
-            typewriter_effect(f"    • Marcos family: Still in power")
-            typewriter_effect(f"    • Duterte family: Still in power")
-            typewriter_effect(f"    • Senator siblings: Still in Senate")
-            typewriter_effect(f"    • Provincial dynasties: Still controlling their territories")
+            typing_with_pauses("    • Marcos family: Still in power")
+            typing_with_pauses("    • Duterte family: Still in power")
+            typing_with_pauses("    • Senator siblings: Still in Senate")
+            typing_with_pauses("    • Provincial dynasties: Still controlling their territories")
 
             time.sleep(1)
 
             # The Waiting Period
-            typewriter_effect(f"\n  ⏳ Simulating {year}-{year+6} term...")
+            typing_with_pauses(f"\n  ⏳ Simulating {year}-{year+6} term...")
             time.sleep(2.5)  # Representing 6-year term
 
-            typewriter_effect(f"  ✓ Term completed. Same surnames still in power.")
+            typing_with_pauses("  ✓ Term completed. Same surnames still in power.")
 
             # Meta Commentary
             if election_count == 1:
@@ -166,10 +164,10 @@ def main():
     print("=" * 60)
     time.sleep(1)
 
-    typewriter_effect("\n# Initializing democracy.exe...")
+    typing_with_pauses("\n# Initializing democracy.exe...")
     dramatic_pause(2)
 
-    typewriter_effect("\n# Loading political families into power...")
+    typing_with_pauses("\n# Loading political families into power...")
     time.sleep(1)
 
     # Show current power structure
@@ -193,7 +191,7 @@ def main():
             typing_with_pauses(f"    • {family} (Controlling local government for decades)")
             time.sleep(0.3)
 
-    typing_with_pauses(f"\n  ... and more provinces with similar patterns")
+    typing_with_pauses("\n  ... and more provinces with similar patterns")
 
     dramatic_pause(3)
 
@@ -252,7 +250,7 @@ def main():
         "Senator 3"
     ]
 
-    typing_with_pauses(f"\n📊 Candidate Pool Analysis:")
+    typing_with_pauses("\n📊 Candidate Pool Analysis:")
     typing_with_pauses(f"   National candidates: {len(national_candidates)} available")
     typing_with_pauses(f"     • Dynasty-affiliated: {len([c for c in national_candidates if c[1] != 'No Dynasty'])}")
     typing_with_pauses(f"     • Independent: {len([c for c in national_candidates if c[1] == 'No Dynasty'])}")
@@ -289,7 +287,7 @@ def main():
         for province, pool in provincial_locks.items():
             provincial_config[province] = random.choice(pool)
 
-        typewriter_effect("\n  Proposed Government Configuration:")
+        typing_with_pauses("\n  Proposed Government Configuration:")
         time.sleep(0.5)
 
         # Display NATIONAL configuration
@@ -309,7 +307,7 @@ def main():
         dramatic_pause(2)
 
         # Analyze for dynasties
-        typewriter_effect("\n  🔬 Analyzing for dynasty members...")
+        typing_with_pauses("\n  🔬 Analyzing for dynasty members...")
         time.sleep(1)
 
         # Combine both configs for analysis
@@ -327,7 +325,7 @@ def main():
             family_counts[family] = family_counts.get(family, 0) + 1
         duplicate_families = sum(1 for count in family_counts.values() if count > 1)
 
-        typing_with_pauses(f"\n  📈 Results:")
+        typing_with_pauses("\n  📈 Results:")
         time.sleep(0.3)
         typing_with_pauses(f"    • Total positions: {total_positions}")
         time.sleep(0.3)
@@ -349,12 +347,12 @@ def main():
         else:
             typing_with_pauses(f"\n  ❌ FAILED: Still {dynasty_percentage:.1f}% dynasty-controlled")
             time.sleep(0.5)
-            typing_with_pauses(f"  (Even with provinces locked to their territories)")
+            typing_with_pauses("  (Even with provinces locked to their territories)")
 
         time.sleep(1)
 
         if attempt < 3:
-            typewriter_effect("\n  Trying another combination...")
+            typing_with_pauses("\n  Trying another combination...")
             time.sleep(1)
 
     # Final analysis
@@ -374,15 +372,15 @@ def main():
 
     typing_with_pauses("\n  Root Cause Analysis:")
     time.sleep(0.5)
-    typewriter_effect("    • Problem is not the algorithm")
+    typing_with_pauses("    • Problem is not the algorithm")
     time.sleep(0.5)
-    typewriter_effect("    • Problem is the dataset (candidate pool)")
+    typing_with_pauses("    • Problem is the dataset (candidate pool)")
     time.sleep(0.5)
-    typewriter_effect(f"    • National level: {len([c for c in national_candidates if c[1] != 'No Dynasty'])}/{len(national_candidates)} candidates are dynasty-affiliated")
+    typing_with_pauses(f"    • National level: {len([c for c in national_candidates if c[1] != 'No Dynasty'])}/{len(national_candidates)} candidates are dynasty-affiliated")
     time.sleep(0.5)
-    typewriter_effect("    • Provincial level: Already locked to territorial dynasties")
+    typing_with_pauses("    • Provincial level: Already locked to territorial dynasties")
     time.sleep(0.5)
-    typewriter_effect("    • Even randomizing national positions can't overcome provincial locks")
+    typing_with_pauses("    • Even randomizing national positions can't overcome provincial locks")
 
     dramatic_pause(2)
 

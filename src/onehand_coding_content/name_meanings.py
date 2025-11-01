@@ -10,6 +10,7 @@ import pycountry
 from dotenv import load_dotenv
 import google.generativeai as genai
 
+from .config import LINE_LENGTH
 from .database import get_cached_name, cache_name
 
 load_dotenv()
@@ -179,9 +180,9 @@ async def main():
     analysis = await provider.analyze_name(name_to_check)
     
     if 'formatted_description' in analysis:
-        print("="*50)
+        print("="*LINE_LENGTH)
         print(analysis['formatted_description'])
-        print("="*50)
+        print("="*LINE_LENGTH)
     else:
         print(f"Could not analyze the name '{name_to_check}'.")
         print("Raw data:", analysis)

@@ -1,6 +1,7 @@
 import time
 import random
-from datetime import datetime
+
+from ..config import LINE_LENGTH
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 class AyudaDistributionSystem:
@@ -15,8 +16,9 @@ class AyudaDistributionSystem:
         self.remaining_budget = self.total_budget
         self.event_type = self._get_calamity_event()
         print()
-        typing_with_pauses(f"🚨 {self.event_type} AYUDA DISTRIBUTION SYSTEM v2.0 🚨", delay=0.03)
-        print("="*60)
+        print("="*LINE_LENGTH)
+        typewriter_effect(f"🚨 {self.event_type} AYUDA DISTRIBUTION SYSTEM v2.0 🚨")
+        print("="*LINE_LENGTH)
         dramatic_pause(1)
 
     def _get_calamity_event(self):
@@ -48,7 +50,7 @@ class AyudaDistributionSystem:
         typing_with_pauses(f"   - Less 'Miscellaneous Expenses' (10%): ₱{self.total_budget * 0.6 * 0.75 * 0.1:,.2f}")
         
         dramatic_pause(1)
-        typewriter_effect(f"\n   ✅ Net Budget for Distribution: ₱{self.remaining_budget:,.2f}")
+        typing_with_pauses(f"\n   ✅ Net Budget for Distribution: ₱{self.remaining_budget:,.2f}")
         typing_with_pauses("   📝 Note: 'Budget is fully accounted for.'")
 
     def list_requirements(self):
@@ -69,7 +71,7 @@ class AyudaDistributionSystem:
         ]
         
         for req in requirements:
-            typing_with_pauses(req, delay=0.02)
+            typing_with_pauses(req)
         
         dramatic_pause(1)
         typing_with_pauses("\n   *Additional requirements may be announced on-site.*")
@@ -80,11 +82,11 @@ class AyudaDistributionSystem:
         dramatic_pause(2)
 
         ayuda_per_person = self.remaining_budget / num_beneficiaries
-        typewriter_effect(f"   - Calculated Ayuda per Person: ₱{ayuda_per_person:,.2f}")
+        typing_with_pauses(f"   - Calculated Ayuda per Person: ₱{ayuda_per_person:,.2f}")
         typing_with_pauses("   - Announcing to media: 'Up to ₱10,000 per family!'")
         dramatic_pause(2)
 
-        typewriter_effect("\n   - Distribution Day Simulation:")
+        typing_with_pauses("\n   - Distribution Day Simulation:")
         dramatic_pause(1)
         
         events = [
@@ -103,20 +105,20 @@ class AyudaDistributionSystem:
 
         final_ayuda = ayuda_per_person * 0.25 # 'Processing fees'
         dramatic_pause(1)
-        typewriter_effect(f"\n\n   💸 Actual Ayuda Received per Person: ₱{final_ayuda:,.2f} (in a damaged envelope)")
+        typing_with_pauses(f"\n\n   💸 Actual Ayuda Received per Person: ₱{final_ayuda:,.2f} (in a damaged envelope)")
         typing_with_pauses("   - Plus one (1) can of sardines and two (2) packs of noodles.")
 
     def generate_report(self):
         """Generate the official accomplishment report"""
-        print("\n\n" + "="*60)
-        typing_with_pauses("📈 ACCOMPLISHMENT REPORT", delay=0.03)
-        print("="*60)
+        print("\n\n" + "="*LINE_LENGTH)
+        typewriter_effect("📈 ACCOMPLISHMENT REPORT")
+        print("="*LINE_LENGTH)
         dramatic_pause(1)
 
-        typewriter_effect(f"🎯 Target Beneficiaries: 1,000,000")
-        typewriter_effect(f"✅ Actual Beneficiaries Served: 1,000,000 (in the report)")
-        typewriter_effect(f"💰 Budget Utilized: 100%")
-        typewriter_effect(f"⭐ Satisfaction Rating: 110% (based on official surveys)")
+        typing_with_pauses("🎯 Target Beneficiaries: 1,000,000")
+        typing_with_pauses("✅ Actual Beneficiaries Served: 1,000,000 (in the report)")
+        typing_with_pauses("💰 Budget Utilized: 100%")
+        typing_with_pauses("⭐ Satisfaction Rating: 110% (based on official surveys)")
         dramatic_pause(1)
         typing_with_pauses("\n🏆 Status: MISSION ACCOMPLISHED")
         typing_with_pauses("🎖️  Team to receive commendation and bonuses!")
@@ -139,12 +141,12 @@ def main():
     # Generate report
     system.generate_report()
 
-    print("\n\n" + "="*60)
+    print("\n\n" + "="*LINE_LENGTH)
     typing_with_pauses("💬 Official Statement:")
     typing_with_pauses("   'The distribution was a resounding success.'")
     dramatic_pause(1)
     typing_with_pauses("\n🤔 Citizens: 'Success po sa ano?'")
-    print("="*60)
+    print("="*LINE_LENGTH)
 
 
 # Run the simulation

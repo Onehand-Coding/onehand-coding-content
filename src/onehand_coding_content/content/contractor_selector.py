@@ -13,7 +13,7 @@ class ContractorSelectionSystem:
     def __init__(self):
         print()
         print("="*60)
-        typing_with_pauses("🏗️  GOVERNMENT PROJECT BIDDING SYSTEM", delay=0.03)
+        typewriter_effect("🏗️  GOVERNMENT PROJECT BIDDING SYSTEM")
         print("="*60)
         dramatic_pause(1)
         typing_with_pauses("📜 'Ensuring fair and transparent selection since... today!'")
@@ -107,36 +107,36 @@ class ContractorSelectionSystem:
         dramatic_pause(2)
 
         # Dramatic countdown
-        typewriter_effect("\n⏳ Selecting winner in:")
+        typing_with_pauses("\n⏳ Selecting winner in:")
         for i in range(3, 0, -1):
-            typewriter_effect(f"   {i}...")
+            typing_with_pauses(f"   {i}...")
             time.sleep(1)
 
         # Fake randomization
-        typewriter_effect("\n🎯 Random selection in progress:")
+        typing_with_pauses("\n🎯 Random selection in progress:")
 
         dramatic_pause(1)
         for bidder in self.bidders:
             bidder = bidder['name']
-            typewriter_effect(f"   Checking... {bidder}")
+            typing_with_pauses(f"   Checking... {bidder}")
             time.sleep(0.5)
             if bidder != self.the_chosen_one:
                 typing_with_pauses(f"   ❌ Disqualified ({random.choice(self.disqualification_reasons)})")
             else:
-                typing_with_pauses(f"   ✅ *Mysteriously passes all criteria*")
+                typing_with_pauses("   ✅ *Mysteriously passes all criteria*")
             time.sleep(0.8)
 
     def announce_winner(self):
         """The grand reveal"""
         print("\n\n" + "="*60)
-        typing_with_pauses("🎊 OFFICIAL ANNOUNCEMENT", delay=0.03)
+        typewriter_effect("🎊 OFFICIAL ANNOUNCEMENT")
         print("="*60)
         dramatic_pause(2)
 
         typing_with_pauses(f"\n🏆 WINNER: {self.the_chosen_one}", delay=0.04)
         dramatic_pause(1)
 
-        typewriter_effect("\n📢 Justification:")
+        typing_with_pauses("\n📢 Justification:")
         typing_with_pauses("   'After careful and RANDOM evaluation...'")
         dramatic_pause(1)
         typing_with_pauses("   'The selection process was TRANSPARENT...'")
@@ -146,7 +146,7 @@ class ContractorSelectionSystem:
         typing_with_pauses("   'This company offered the BEST value...'")
         dramatic_pause(2)
 
-        typewriter_effect("\n💰 Contract Details:")
+        typing_with_pauses("\n💰 Contract Details:")
         typing_with_pauses("   Amount: ₱800M (highest bid)")
         typing_with_pauses("   Timeline: '18 months' or '3 days if you want'")
         typing_with_pauses("   Quality guarantee: 'We are the DPWH'")
@@ -171,7 +171,7 @@ class ContractorSelectionSystem:
             time.sleep(1)
 
         dramatic_pause(2)
-        typewriter_effect("\n📢 Official Response:")
+        typing_with_pauses("\n📢 Official Response:")
         typing_with_pauses("   'Any insinuations of irregularity are baseless.'")
         dramatic_pause(1)
         typing_with_pauses("   'The process followed all legal procedures.'")
@@ -200,7 +200,7 @@ def main():
     system.public_reaction()
 
     print("\n\n" + "="*60)
-    typing_with_pauses("🎭 END OF BIDDING PROCESS", delay=0.03)
+    typing_with_pauses("🎭 END OF BIDDING PROCESS")
     typing_with_pauses("💬 'Democracy in action!' - Official Tagline")
     typing_with_pauses("🤦 'Déjà vu in action.' - Citizens")
     print("="*60)

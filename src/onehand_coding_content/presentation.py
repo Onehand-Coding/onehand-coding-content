@@ -1,7 +1,4 @@
 import time
-import sys
-import os
-from pathlib import Path
 
 from .sounds import play_sound, KEYPRESS_SOUND
 

@@ -1,6 +1,7 @@
 import time
 import random
 
+from ..config import LINE_LENGTH
 from ..sounds import play_sound, play_with_wait, NEVER_BACKDOWN, KEYPRESS_SOUND
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
@@ -26,9 +27,9 @@ class TransparencyMeter:
         ]
 
         print()
-        print("="*60)
-        typing_with_pauses("📊 PHILIPPINE GOVERNMENT TRANSPARENCY METER", delay=0.03)
-        print("="*60)
+        print("="*LINE_LENGTH)
+        typewriter_effect("📊 PHILIPPINE GOVERNMENT TRANSPARENCY METER")
+        print("="*LINE_LENGTH)
         dramatic_pause(1)
 
     def initialize_system(self):
@@ -44,29 +45,29 @@ class TransparencyMeter:
         ]
 
         for step in steps:
-            typewriter_effect(f"   ⏳ {step}")
+            typing_with_pauses(f"   ⏳ {step}")
             time.sleep(1.5)
 
-        typewriter_effect("\n✅ System initialized!")
+        typing_with_pauses("\n✅ System initialized!")
         dramatic_pause(1)
         typing_with_pauses("⚠️  Warning: Display may be stuck. Have tried turning it off and on again.")
 
     def check_transparency(self, category):
         """Check transparency level for different categories"""
         typewriter_effect(f"\n📋 Checking transparency for: {category}")
-        print("-"*60)
+        print("-"*LINE_LENGTH)
         dramatic_pause(1)
 
         # Simulate "checking"
-        typewriter_effect("🔍 Analyzing data...")
+        typing_with_pauses("🔍 Analyzing data...")
         dramatic_pause(1.5)
-        typewriter_effect("🧮 Calculating metrics...")
+        typing_with_pauses("🧮 Calculating metrics...")
         dramatic_pause(1.5)
-        typewriter_effect("📊 Generating report...")
+        typing_with_pauses("📊 Generating report...")
         dramatic_pause(1.5)
 
         # Result is always the same
-        typewriter_effect(f"\n📈 Transparency Level: {self.transparency_level}%")
+        typing_with_pauses(f"\n📈 Transparency Level: {self.transparency_level}%")
 
         # Progress bar stuck at 0
         print("\nProgress: [", end="")
@@ -95,30 +96,30 @@ class TransparencyMeter:
             ("ICI Investigation Transparency", "ICI Investigation: Public live feed, or another state secret?")
         ]
 
-        print("\n" + "="*60)
+        print("\n" + "="*LINE_LENGTH)
         typewriter_effect("🔍 COMPREHENSIVE TRANSPARENCY AUDIT")
-        print("="*60)
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         for category, question in categories:
-            typewriter_effect(f"\n📂 Category: {category}")
+            typing_with_pauses(f"\n📂 Category: {category}")
             typing_with_pauses(f"❓ Question: {question}")
             dramatic_pause(1)
 
-            typewriter_effect("🔄 Processing request...")
+            typing_with_pauses("🔄 Processing request...")
             dramatic_pause(2)
 
-            typewriter_effect(f"📊 Transparency Score: {self.transparency_level}%")
-            typewriter_effect(f"🚫 Status: Information not available")
+            typing_with_pauses(f"📊 Transparency Score: {self.transparency_level}%")
+            typing_with_pauses("🚫 Status: Information not available")
             excuse = random.choice(self.excuses_list)
             typing_with_pauses(f"📌 Reason: {excuse}")
             time.sleep(1.5)
 
     def attempt_to_fix(self):
         """Try to fix the stuck meter (spoiler: it won't work)"""
-        print("\n" + "="*60)
+        print("\n" + "="*LINE_LENGTH)
         typewriter_effect("🔧 ATTEMPTING TO REPAIR TRANSPARENCY METER...")
-        print("="*60)
+        print("="*LINE_LENGTH)
         dramatic_pause(2)
 
         attempts = [
@@ -133,7 +134,7 @@ class TransparencyMeter:
         ]
 
         for attempt, success in attempts:
-            typewriter_effect(f"\n🔄 {attempt}...")
+            typing_with_pauses(f"\n🔄 {attempt}...")
             dramatic_pause(2)
 
             # Fake progress
@@ -144,13 +145,13 @@ class TransparencyMeter:
             print("] Done")
 
             if success:
-                typewriter_effect("   ✅ Success!")
+                typing_with_pauses("   ✅ Success!")
             else:
                 typing_with_pauses("   ❌ Failed. Meter still at 0%")
 
             time.sleep(0.8)
 
-        typewriter_effect("\n🤷 DIAGNOSIS:")
+        typing_with_pauses("\n🤷 DIAGNOSIS:")
         dramatic_pause(1)
         typing_with_pauses("   Technical Issue: Meter is not broken.")
         dramatic_pause(1)
@@ -162,9 +163,9 @@ class TransparencyMeter:
 
     def citizen_requests(self):
         """Simulate citizen FOI requests"""
-        print("\n" + "="*60)
+        print("\n" + "="*LINE_LENGTH)
         typewriter_effect("📬 PROCESSING FREEDOM OF INFORMATION REQUESTS")
-        print("="*60)
+        print("="*LINE_LENGTH)
         dramatic_pause(1)
 
         requests = [
@@ -197,18 +198,18 @@ class TransparencyMeter:
         ]
 
         for request in requests:
-            typewriter_effect(f"\n📥 {request}")
+            typing_with_pauses(f"\n📥 {request}")
             time.sleep(0.8)
-            typewriter_effect("   Status: Pending")
+            typing_with_pauses("   Status: Pending")
             time.sleep(0.8)
             days_waiting = random.choice(satirical_waiting_days)
-            typewriter_effect(f"   Days waiting: {days_waiting}")
+            typing_with_pauses(f"   Days waiting: {days_waiting}")
             time.sleep(0.8)
             response = random.choice(satirical_responses)
             typing_with_pauses(f"   Expected response: {response}")
             time.sleep(1.5)
 
-        typewriter_effect("\n💬 Auto-reply:")
+        typing_with_pauses("\n💬 Auto-reply:")
         typing_with_pauses("   'Your request has been received and is being processed.'")
         dramatic_pause(1)
         typing_with_pauses("   'Please expect a response within 15-30 working days.'")
@@ -237,30 +238,30 @@ def main():
     # Try to fix
     meter.attempt_to_fix()
 
-    print("\n" + "="*60)
-    typing_with_pauses("📉 OVERALL TRANSPARENCY INDEX: 0%", delay=0.04)
-    print("="*60)
+    print("\n" + "="*LINE_LENGTH)
+    typewriter_effect("📉 OVERALL TRANSPARENCY INDEX: 0%")
+    print("="*LINE_LENGTH)
     dramatic_pause(1)
     typing_with_pauses("\n🏆 Achievement Unlocked: 'Consistent Performance!'")
 
     # Final message
-    print("\n" + "="*60)
-    typing_with_pauses("🎭 SYSTEM SUMMARY", delay=0.03)
-    print("="*60)
-    typewriter_effect("📊 Transparency Meter: 0% (functioning normally)")
-    typewriter_effect("📝 Excuses Generated: Unlimited")
-    typewriter_effect("⏰ Avg Response Time: ∞")
-    typewriter_effect("🤷 Accountability Level: 404 Not Found")
-    print("="*60)
+    print("\n" + "="*LINE_LENGTH)
+    typing_with_pauses("🎭 SYSTEM SUMMARY")
+    print("="*LINE_LENGTH)
+    typing_with_pauses("📊 Transparency Meter: 0% (functioning normally)")
+    typing_with_pauses("📝 Excuses Generated: Unlimited")
+    typing_with_pauses("⏰ Avg Response Time: ∞")
+    typing_with_pauses("🤷 Accountability Level: 404 Not Found")
+    print("="*LINE_LENGTH)
 
     dramatic_pause(2)
     typing_with_pauses("\n💭 'Sunshine is the best disinfectant' - Louis Brandeis")
     dramatic_pause(1)
     typing_with_pauses("🌑 'Good thing we're allergic to sunshine' - PH Gov't, probably")
 
-    typewriter_effect("\n\n# while transparency == 0:")
-    typewriter_effect("#     promises += 1")
-    typewriter_effect("#     accountability -= 1")
+    typing_with_pauses("\n\n# while transparency == 0:")
+    typing_with_pauses("#     promises += 1")
+    typing_with_pauses("#     accountability -= 1")
 
     play_with_wait(NEVER_BACKDOWN)
 

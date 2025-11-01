@@ -5,21 +5,21 @@ import os
 import sys
 import asyncio
 import inspect
+import argparse
+import importlib.util
 from pathlib import Path
-from typing import Optional, List
+from typing import List
+
+from .config import PROJECT_ROOT, LINE_LENGTH
 
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"  # Lets hide the pygame prompt.
 
-from .config import PROJECT_ROOT
+CONTENT_DIR = Path(__file__).parent / "content"
 
 
 def run_script(script_name: str, args: list[str] = []):
     """Finds and runs a script, handling both sync and async main functions."""
-    import importlib.util
-    from pathlib import PosixPath
-
-    content_dir = Path(__file__).parent / "content"
-    script_path = content_dir / script_name
+    script_path = CONTENT_DIR / script_name
 
     if not script_path.exists():
         print(f"Script {script_path.name} not Found!")
@@ -56,19 +56,77 @@ def run_script(script_name: str, args: list[str] = []):
         sys.exit(0)
 
 
+def get_content_scripts():
+    """
+    Return a sorted list of all content scripts from content dir.
+    Only return the names not absolute paths.
+    """
+    return sorted(content_code.name for content_code in CONTENT_DIR.glob("*.py"))
+
+
+def list_content_scripts(content_scripts: List[str] = None) -> None:
+    """List all content codes in content directory."""
+    if content_scripts is None:
+        content_scripts = []
+    print()
+    print("=" * LINE_LENGTH)
+    print("AVAILABLE SCRIPTS TO RUN:")
+    print("=" * LINE_LENGTH)
+
+    if not content_scripts:
+        print("\nNo Script to run, write a new one.")
+
+    for i, content_code in enumerate(content_scripts, start=1):
+        print(f"{i}.", content_code)
+    print()
+
+
+def choose_content_script(content_scripts: List[str] = None):
+    """Pick a content script from content directory."""
+    if content_scripts is None:
+        content_scripts = []
+
+    # List available scripts to choose from.
+    list_content_scripts(content_scripts)
+
+    # Choose the the script based on its index.
+    while True:
+        try:
+            script_index = int(input("Enter script Index: "))
+            if 0 < script_index <= len(content_scripts):
+                return content_scripts[script_index - 1]
+            print("\nEnter a valid Index!\n")
+        except ValueError:
+            print("\nEnter a valid Index!\n")
+        except KeyboardInterrupt:
+            print("Interrupted, exiting...")
+            sys.exit()
+
+
 def main():
     """Run the main function."""
-    args = sys.argv
+    content_scripts = get_content_scripts()
+    parser = argparse.ArgumentParser(description="Onehand-Coding FB page scripts content runner.")
 
-    # Lets support running one script at a time for now.
-    if len(args) != 2:
-        print("Choose a content script to run!")
-        sys.exit(1)
-    elif len(args) > 2:
-        print("Isa-isang script lang bro, mahina ang kalaban!")
-        sys.exit(1)
+    parser.add_argument("script", nargs="?", help="Name of the python script to run, must be located in content directory.")
+    parser.add_argument("-l", "--list", action= "store_true", help="List all available scripts.")
+    parser.add_argument("-c", "--choose", action= "store_true", help="Enables user to choose a script to run interactively.")
 
-    run_script(args[1])
+    args = parser.parse_args()
+
+    if args.list:
+        list_content_scripts(content_scripts)
+    if args.choose:
+        run_script(choose_content_script(content_scripts))
+
+    # If the the script to run is provided as argument.
+    script = args.script
+    if script is not None:
+        if script not in content_scripts:
+            print(f"\n{script} not found in content dir, make sure to put it inside this directory: {CONTENT_DIR}/")
+            return
+
+        run_script(script)
 
 
 if __name__ == "__main__":

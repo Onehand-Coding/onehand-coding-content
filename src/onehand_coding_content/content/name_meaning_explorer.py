@@ -6,23 +6,23 @@ import os
 import time
 import asyncio
 
+from ..config import LINE_LENGTH
 from ..name_meanings import NameMeaningProvider
 from ..presentation import typewriter_effect, typing_with_pauses, dramatic_pause
 
 
 class NameMeaningExplorer:
     """Interactive name meaning exploration tool."""
-    LINE_LENGTH = 50
 
     def __init__(self):
         """Initialize the name meaning explorer."""
         self.name_meaning_provider = NameMeaningProvider()
-        print("\n" + "="*self.LINE_LENGTH)
+        print("\n" + "="*LINE_LENGTH)
         typewriter_effect("🔍 NAME MEANING EXPLORER")
-        print("="*self.LINE_LENGTH)
-        dramatic_pause(2)
-        typewriter_effect("Discover the hidden meanings behind names!")
-        dramatic_pause(2)
+        print("="*LINE_LENGTH)
+        dramatic_pause(1)
+        typing_with_pauses("Discover the hidden meanings behind names!")
+        dramatic_pause(1)
 
     async def analyze_name_concurrently(self, name: str):
         """Analyze a name while showing animations."""
@@ -56,9 +56,9 @@ class NameMeaningExplorer:
         """Display name information using presentation effects."""
         
         if description:
-            print("\n" + "="*self.LINE_LENGTH)
+            print("\n" + "="*LINE_LENGTH)
             typewriter_effect("📊 NAME ANALYSIS RESULTS")
-            print("="*self.LINE_LENGTH, "\n")
+            print("="*LINE_LENGTH, "\n")
             
             # Print the description with effect, line by line
             lines = description.split('\n')
@@ -76,7 +76,6 @@ class NameMeaningExplorer:
 async def main():
     """Main entry point for the name meaning explorer."""
     explorer = NameMeaningExplorer()
-    dramatic_pause(1)
 
     loop = asyncio.get_running_loop()
 

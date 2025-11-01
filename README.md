@@ -43,7 +43,7 @@ Some scripts may require API keys or other secrets to function.
 
 All runnable scripts are located in the `src/onehand_coding_content/content/` directory.
 
-To run a script, use the `uv run content` command followed by the script's filename.
+To run a script, use the `uv run content` command followed by the script's filename, `list` to list all available scripts, `choose` to choose a script to run.
 
 ### Examples:
 
@@ -56,6 +56,12 @@ uv run content dynasty_simulator.py
 
 # Run the interactive name meaning explorer
 uv run content name_meaning_explorer.py
+
+# List Avaiable scripts
+uv run content list
+
+# Choose a script to run
+uv run content choose
 ```
 
 ## Contributing
