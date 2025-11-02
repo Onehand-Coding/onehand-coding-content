@@ -34,6 +34,10 @@ CORRUPTION_3 = SOUND_DIR / "corruption-3.wav"
 DELAY = SOUND_DIR / "delay.wav"
 NO_PROMISES = SOUND_DIR / "no-promises.wav"
 HERO = SOUND_DIR / "hero.wav"
+EVIL_GIGGLE = SOUND_DIR / "evil-giggle.wav"
+UNFAIR_1 = SOUND_DIR / "unfair-1.wav"
+UNFAIR_2 = SOUND_DIR / "unfair-2.wav"
+REVOLUTION = SOUND_DIR / "revolution.wav"
 
 
 def play_sound(sound_file, volume=0.3):
