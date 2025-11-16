@@ -39,3 +39,6 @@ coverage.xml
 
 # Database
 *.db
+
+# Data
+data/maps

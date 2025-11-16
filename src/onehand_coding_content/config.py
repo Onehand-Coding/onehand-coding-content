@@ -31,8 +31,9 @@ PROJECT_ROOT = find_project_root()
 
 DATA_DIR = PROJECT_ROOT / "data"
 SOUND_DIR = PROJECT_ROOT / "data" / "sounds"
+MAPS_DIR = PROJECT_ROOT / "data" / "maps"
 
-data_folders = [DATA_DIR, SOUND_DIR]
+data_folders = [DATA_DIR, SOUND_DIR, MAPS_DIR]
 create_folders(data_folders)
 
 # Generic constants
